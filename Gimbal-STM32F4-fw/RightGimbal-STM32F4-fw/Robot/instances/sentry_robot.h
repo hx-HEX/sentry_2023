@@ -6,8 +6,8 @@
 #include "ewma.h"
 
 // The encoder value corresponding to mechanical zero of the gimbal motor
-#define GIMBAL_PITCH_ENCODER_ZERO_VALUE    ( (uint32_t) 4783 )
-#define GIMBAL_YAW_ENCODER_ZERO_VALUE    ( (uint32_t) 2016 )
+#define GIMBAL_PITCH_ENCODER_ZERO_VALUE    ( (uint32_t) 616 )
+#define GIMBAL_YAW_ENCODER_ZERO_VALUE    ( (uint32_t) 468 )
 
 // The encoder value corresponding to mechanical zero of the fric motor
 #define LEFT_FRIC_ENCODER_ZERO_VALUE            ( (uint32_t) 123 )
@@ -25,8 +25,8 @@
 // Motor ID(same type motors should have different ID)
 #define GIMBAL_PITCH_MOTOR_ID             ( (uint8_t) 1 )
 #define GIMBAL_YAW_MOTOR_ID              ( (uint8_t) 2 )
-#define LEFT_FRIC_MOTOR_ID                      ( (uint8_t) 2 )
-#define RIGHT_FRIC_MOTOR_ID                     ( (uint8_t) 1 )
+#define LEFT_FRIC_MOTOR_ID                      ( (uint8_t) 1 )
+#define RIGHT_FRIC_MOTOR_ID                     ( (uint8_t) 2 )
 
 // Motor number
 #define SHOOT_MOTOR_NUM ( (uint8_t) 2 )
@@ -54,15 +54,15 @@
 // #define YAW_ANGLE_IMU_FEEDBACK
 #define YAW_ANGLE_ENCODER_FEEDBACK
 
-#define PITCH_ANGLE_MAX              20
-#define PITCH_ANGLE_MIN             -20
-#define YAW_ANGLE_MAX                135
-#define YAW_ANGLE_MIN               -135
+#define PITCH_ANGLE_MAX              30
+#define PITCH_ANGLE_MIN             -30
+#define YAW_ANGLE_MAX                38
+#define YAW_ANGLE_MIN               -180
 
-#define GIMBAL_PITCH_ANGLE_SCAN_ANGLE_MIN                   ( (float) -10.0f )
-#define GIMBAL_PITCH_ANGLE_SCAN_ANGLE_MAX                   ( (float) 10.0f )
-#define GIMBAL_YAW_ANGLE_SCAN_ANGLE_MIN                     ( (float) -135.0f )
-#define GIMBAL_YAW_ANGLE_SCAN_ANGLE_MAX                     ( (float) 135.0f )
+#define GIMBAL_PITCH_ANGLE_SCAN_ANGLE_MIN                   ( (float) -15.0f )
+#define GIMBAL_PITCH_ANGLE_SCAN_ANGLE_MAX                   ( (float) 15.0f )
+#define GIMBAL_YAW_ANGLE_SCAN_ANGLE_MIN                     ( (float) -180.0f )
+#define GIMBAL_YAW_ANGLE_SCAN_ANGLE_MAX                     ( (float) 30.0f )
 
 #define GIMBAL_PITCH_ANGLE_SCAN_SPEED                       ( (float) 0.04f )
 #define GIMBAL_YAW_ANGLE_SCAN_SPEED                         ( (float) 0.1f )

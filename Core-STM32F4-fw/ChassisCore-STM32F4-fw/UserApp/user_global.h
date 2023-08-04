@@ -36,6 +36,7 @@ void RobotTargetsUpdate(void);
 void RobotControlExecute(void);
 void YawGimbalCalibrate(void);
 void ChassisTargetsUpdate(void);
+void GimbalTargrtUpdata(void);
 void OmnidirectionalChassisTargetUpdate(void);
 
 void SendGimbalData(void);

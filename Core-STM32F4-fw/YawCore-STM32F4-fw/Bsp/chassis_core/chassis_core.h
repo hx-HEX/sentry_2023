@@ -14,7 +14,7 @@
                                             CHASSIS_CORE_DATA_RECEIVE_CHAR_NUM)
 
 #define CHASSIS_CORE_RECEIVE_HEAD_SIZE  3
-
+#define CHASSIS_CORE_BUFF_RECEIVE_SIZE  250
 
 class Chassis_Core {
 public:
@@ -39,6 +39,7 @@ public:
 	Chassis_CoreDataSendFrame m_data_send_frame;
 	Chassis_CoreDataReceiveFrame m_data_receive_frame;
     Usart* usart_chassis_core;
+    unsigned char chassis_core_receive_buff[CHASSIS_CORE_BUFF_RECEIVE_SIZE];
 
     Chassis_Core() {
 		m_data_send_size = CHASSIS_CORE_DATA_SEND_SIZE;

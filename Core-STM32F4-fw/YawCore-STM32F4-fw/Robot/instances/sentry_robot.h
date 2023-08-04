@@ -31,8 +31,8 @@
 #define GIMBAL_PITCH_ANGLE_SCAN_ANGLE_MAX                   ( (float) 8.0f )
 #define GIMBAL_YAW_ANGLE_SCAN_ANGLE_MIN                     ( (float) -180.0f )
 #define GIMBAL_YAW_ANGLE_SCAN_ANGLE_MAX                     ( (float) 180.0f )
-#define GIMBAL_PITCH_MAX                                    ( (float) 20.0f )
-#define GIMBAL_PITCH_MIN                                    ( (float) -10.0f )
+#define GIMBAL_PITCH_MAX                                    ( (float) 30.0f )
+#define GIMBAL_PITCH_MIN                                    ( (float) -30.0f )
 #define GIMBAL_YAW_MAX                                      ( (float) 180.0f )
 #define GIMBAL_YAW_MIN                                      ( (float) -180.0f )
 
@@ -85,6 +85,7 @@ public:
     enum YawGimbalMode {
         YAW_SAFE = 0,
         YAW_MOVE,
+        YAW_CALIBRATE,
         YAW_STATIC
     };
     YawGimbalMode yawgimbal_mode;
@@ -98,6 +99,7 @@ public:
         ALL_AUTO
     };
     GimbalControlMode gimbalrc_mode;
+    GimbalControlMode gimbalrc_mode_pre;
     GimbalControlMode gimbalauto_mode;
 
     enum ShootMotor {
@@ -146,6 +148,10 @@ public:
     uint8_t left_run_flag;
     uint8_t right_run_flag;
     uint8_t m_scan_flag;
+    uint8_t mode_toggle_flag;
+    uint8_t right2left_flag;
+    uint8_t left2right_flag;
+    uint8_t yaws_taitc2yaw_move_flag;
 
     //chassis
     float m_world_vx;

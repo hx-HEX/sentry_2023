@@ -34,8 +34,10 @@ void RobotStatesUpdate(void);
 void RobotTargetsUpdate(void);
 void RobotControlExecute(void);
 
+void GimbalTest(void);
 void GimbalTargetsUpdate(void);
 void ShootTargetsUpdate(void);
+
 
 void SendCoreData(void);
 void SendAimAssistData(void);

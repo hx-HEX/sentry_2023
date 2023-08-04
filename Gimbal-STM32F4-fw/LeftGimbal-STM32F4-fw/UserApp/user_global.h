@@ -40,6 +40,7 @@ void GimbalTargetsUpdate(void);
 void ShootTargetsUpdate(void);
 
 void GimbalTest(void);
+void VisualData(void);
 
 void SendCoreData(void);
 void SendAimAssistData(void);

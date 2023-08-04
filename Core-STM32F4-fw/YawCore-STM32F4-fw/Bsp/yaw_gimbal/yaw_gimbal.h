@@ -11,7 +11,7 @@
 #define YAW_GIMBAL_DATA_SEND_SIZE            ((uint8_t)4 + 4 * YAW_GIMBAL_DATA_SEND_FLOAT_NUM + \
                                         2 * YAW_GIMBAL_DATA_SEND_SHORT_NUM + YAW_GIMBAL_DATA_SEND_CHAR_NUM)
 #define YAW_GIMBAL_DATA_RECEIVE_SIZE            ((uint8_t)4 + 4 * YAW_GIMBAL_DATA_RECEIVE_FLOAT_NUM + \
-                                            YAW_GIMBAL_DATA_RECEIVE_CHAR_NUM)
+                                        2 * YAW_GIMBAL_DATA_RECEIVE_SHORT_NUM + YAW_GIMBAL_DATA_RECEIVE_CHAR_NUM)
 
 
 class Yaw_Gimbal {

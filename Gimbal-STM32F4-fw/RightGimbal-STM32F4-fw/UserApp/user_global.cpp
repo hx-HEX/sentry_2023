@@ -78,6 +78,19 @@ void SendAimAssistData(void)
 }
 
 
+void VisualData(void)
+{
+    G_vofa.m_data_send_frame.m_data[0] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_target;
+    G_vofa.m_data_send_frame.m_data[1] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current;
+    G_vofa.m_data_send_frame.m_data[2] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_target;
+    G_vofa.m_data_send_frame.m_data[3] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current;
+    G_vofa.m_data_send_frame.m_data[4] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current_encoder;
+    G_vofa.m_data_send_frame.m_data[5] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_sum_value;
+    G_vofa.m_data_send_frame.m_data[6] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_zero_value;
+    G_vofa.m_data_send_frame.m_data[7] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_sum_value;
+    G_vofa.m_data_send_frame.m_data[8] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_zero_value;
+}
+
 
 
 /**
@@ -130,7 +143,7 @@ void RobotStatesUpdate(void)
 	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = G_sentry.gimbal_imu[SentryRobot::GIMBAL_FIRST_IMU]->m_mahony_filter->m_eular_angle.pitch;
 	#endif
 	#ifdef FITCH_SPEED_IMU_FEEDBACK
-	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_speed_current = G_sentry.gimbal_imu[SentryRobot::GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_y->GetFilterOutput() * RADIANODEGREES;
+	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_speed_current = -G_sentry.gimbal_imu[SentryRobot::GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_x->GetFilterOutput() * RADIANODEGREES;
 	#endif
 	#ifdef FITCH_SPEED_ENCODER_FEEDBACK
 	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_speed_current =  G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_speed_current_encoder;
@@ -302,13 +315,13 @@ void GimbalTargetsUpdate(void)
                 else
                 {
                     if(G_sentry.yaw_scan_dir)
-                        G_sentry.yaw_angle_des += GIMBAL_PITCH_ANGLE_SCAN_SPEED;
+                        G_sentry.yaw_angle_des += GIMBAL_YAW_ANGLE_SCAN_SPEED;
                     else
-                        G_sentry.yaw_angle_des -= GIMBAL_PITCH_ANGLE_SCAN_SPEED;
+                        G_sentry.yaw_angle_des -= GIMBAL_YAW_ANGLE_SCAN_SPEED;
                     if(G_sentry.pitch_scan_dir)
-                        G_sentry.pitch_angle_des += GIMBAL_YAW_ANGLE_SCAN_SPEED;
+                        G_sentry.pitch_angle_des += GIMBAL_PITCH_ANGLE_SCAN_SPEED;
                     else    
-                        G_sentry.pitch_angle_des -= GIMBAL_YAW_ANGLE_SCAN_SPEED;
+                        G_sentry.pitch_angle_des -= GIMBAL_PITCH_ANGLE_SCAN_SPEED;
                     
                     if(G_sentry.pitch_angle_des > GIMBAL_PITCH_ANGLE_SCAN_ANGLE_MAX)
                         G_sentry.pitch_scan_dir = 0;

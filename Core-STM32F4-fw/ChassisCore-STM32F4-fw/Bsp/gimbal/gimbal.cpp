@@ -6,7 +6,7 @@
 ----------------------------------------------------------------------------------------*/
 void Gimbal::SetUartHandle(USART_TypeDef* USARTx){
     usart_gimbal->USART_RT.USARTx = USARTx;
-    usart_gimbal->USART_Init((uint8_t*)&m_data_receive_frame,GIMBAL_DATA_RECEIVE_SIZE,(uint8_t*)&m_data_send_frame,GIMBAL_DATA_SEND_SIZE,0x08);
+    usart_gimbal->USART_Init((uint8_t*)&m_data_receive_frame,GIMBAL_DATA_RECEIVE_SIZE,gimbal_send_buff,gimbal_send_buff_cnt,0x08);
 }
 
 /*----------------------------------------------------------------------------------------

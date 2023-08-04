@@ -21,7 +21,7 @@ public:
     float m_speed_current_external;
 
     // motor reducer reduction ratio
-	unsigned int m_reduction_ratio; 
+	float m_reduction_ratio; 
 
     // control algorithms
     Adrc_TD* m_angle_td;
@@ -46,7 +46,7 @@ public:
     void SpeedTDControl(void);
     void AngleControl(void);
 
-    M3508(CAN_TypeDef* CANx, uint32_t id, uint32_t ration) { 
+    M3508(CAN_TypeDef* CANx, uint32_t id, float ration) { 
         m_CANx = CANx;
         m_id = id;
         m_reduction_ratio = ration;

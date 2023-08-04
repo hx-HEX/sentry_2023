@@ -49,6 +49,10 @@ public:
     BMI088* gimbal_imu[BMI088_IMU_NUM];
 
     float yaw_angle_des;
+    float yaw_angle_fb;
+    float yaw_angle_fb_pre;
+    uint8_t test_flag;
+    float yaw_test_des;
 
     void Init(void);
 

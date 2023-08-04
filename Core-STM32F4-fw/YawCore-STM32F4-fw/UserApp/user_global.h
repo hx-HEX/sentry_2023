@@ -40,7 +40,6 @@ extern Navigation G_navigation;
 extern Referee G_referee;
 extern SentryRobot G_sentry;
 extern ControlMode G_control_mode;
-extern Photogate G_photogate;
 
 void ControlModeUpdate(void);
 void RobotStatesUpdate(void);

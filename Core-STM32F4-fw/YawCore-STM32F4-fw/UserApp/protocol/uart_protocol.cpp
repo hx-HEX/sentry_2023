@@ -25,7 +25,7 @@ void UART_Decode(EventBits_t EventValue){
 
     if(usart_chassis_core_bit){
 		UART_ChassisCoreDataDecode(G_chassis_core.usart_chassis_core->USART_RT.pMailbox,G_chassis_core.usart_chassis_core->USART_RT.rxSize);
-		G_system_monitor.Chassis_Core_Receive_cnt++;
+		// G_system_monitor.Chassis_Core_Receive_cnt++;
     }
 
     if(usart_yaw_gimbal_bit){
@@ -78,11 +78,15 @@ void UART_ChassisCoreDataDecode(unsigned char* buffer,uint16_t size)
 	uint8_t pData[250] = {0};
 	uint8_t referee_rxsize = 0;
 
-	for(uint16_t i; i < size; i++)
+	for(uint16_t i = 0; i < size; i++)
 	{
 		if(buffer[i] == 0x55 && buffer[i+1] == 0x00)
+		{
 			memcpy(&(G_chassis_core.m_data_receive_frame),(u8*)&buffer[i],
 			sizeof(G_chassis_core.m_data_receive_frame));
+			G_system_monitor.Chassis_Core_Receive_cnt++;
+		}
+			
 
 		if(buffer[i] == 0xAB && buffer[i+1] == 0xA1)
 		{
@@ -103,6 +107,7 @@ void UART_ChassisCoreDataDecode(unsigned char* buffer,uint16_t size)
 			}
 		}
 	}
+	
 }
 
 
@@ -245,7 +250,7 @@ void MatchRSData(u16 cmdID, u8 *pData, u16 Size)
 			break;
 		case ShootDataID:
 			G_referee_monitor.ShootData_cnt++;
-			if(pData[7] == 1)
+			if(pData[8] == 1)
 				memcpy(&G_referee.ShootData_1, &pData[7], Size);
 			else
 				memcpy(&G_referee.ShootData_2, &pData[7], Size);

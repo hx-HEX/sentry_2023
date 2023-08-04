@@ -100,13 +100,13 @@ void VisualizeData(void)
 void SendGimbalData(void)
 {
     G_gimbal.m_data_send_frame.m_fdata[0] = G_sentry.m_yaw_angle;
+    // G_gimbal.m_data_send_frame.m_fdata[1] = 0;//速度可通过底盘反馈合成
     uint32_t gimbal_data_num = sizeof(G_gimbal.m_data_send_frame);
 
     if(G_gimbal.gimbal_send_buff_cnt + gimbal_data_num < GIMBAL_SEND_BUFF_SIZE){
 		memcpy(&G_gimbal.gimbal_send_buff[G_gimbal.gimbal_send_buff_cnt],&G_gimbal.m_data_send_frame,gimbal_data_num);
 		G_gimbal.gimbal_send_buff_cnt += gimbal_data_num;
 	}
-    
     G_gimbal.usart_gimbal->USART_RT.txlen = G_gimbal.gimbal_send_buff_cnt;
     G_gimbal.SendData();
     G_gimbal.gimbal_send_buff_cnt = 0;
@@ -212,7 +212,9 @@ void ControlModeUpdate(void)
 
         if(G_gimbal.m_data_receive_frame.m_cdata[1] > 0.5 && G_gimbal.m_data_receive_frame.m_cdata[1] < 1.5)
             G_sentry.SetYawGimbalMode(SentryRobot::YAWGIMBAL_MOVE);
-        else if (G_gimbal.m_data_receive_frame.m_cdata[1] > 1.5)
+        else if (G_gimbal.m_data_receive_frame.m_cdata[1] > 1.5 && G_gimbal.m_data_receive_frame.m_cdata[1] < 2.5)
+            G_sentry.SetYawGimbalMode(SentryRobot::YAWGIMBAL_STATIC);
+        else if (G_gimbal.m_data_receive_frame.m_cdata[1] > 2.5)
             G_sentry.SetYawGimbalMode(SentryRobot::YAWGIMBAL_CALIBRATE);
         else
             G_sentry.SetYawGimbalMode(SentryRobot::YAWGIMBAL_SAFE);
@@ -243,25 +245,31 @@ void RobotStatesUpdate(void)
     G_sentry.m_yaw_angle = (G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_angle_current_encoder_filter + 
                             G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_angle_current_encoder_filter)/2.0f;
 
+    G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_angle_current = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_angle_current_encoder;
+    G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_angle_current = G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_angle_current_encoder;
+
+    G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_speed_current = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_speed_current_encoder_filter;
+    G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_speed_current = G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_speed_current_encoder_filter;
+
     if (G_system_monitor.UART4_rx_fps > 900)
     {
         G_sentry.m_world_vx = G_gimbal.m_data_receive_frame.m_fdata[0];
         G_sentry.m_world_vy = G_gimbal.m_data_receive_frame.m_fdata[1];
         G_sentry.m_chassis_w = G_gimbal.m_data_receive_frame.m_fdata[2];
-        G_sentry.m_world2chassis_angle = G_sentry.m_yaw_angle - G_gimbal.m_data_receive_frame.m_fdata[3];
+        G_sentry.m_world2chassis_angle = (G_sentry.m_yaw_angle - CHASSIS_ZERO_DIRECTION_ERR) - G_gimbal.m_data_receive_frame.m_fdata[3];
 
         if(G_sentry.m_chassis_w > 1e-6 && G_sentry.ctrl_spinning_flag == true) 
             G_sentry.spinning_flag = true;
         else if(G_sentry.m_chassis_w < 1e-6)
             G_sentry.spinning_flag = false;
         
-        if(G_sentry.yawgimbal_mode != SentryRobot::YAWGIMBAL_SAFE && G_sentry.yawgimbal_mode != SentryRobot::YAWGIMBAL_CALIBRATE)
+        if(G_sentry.yawgimbal_mode != SentryRobot::YAWGIMBAL_SAFE)
         {
             G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_speed_pid->m_output
             = G_gimbal.m_data_receive_frame.m_sdata[0];
 
             G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_speed_pid->m_output
-            = G_gimbal.m_data_receive_frame.m_sdata[0];
+            = G_gimbal.m_data_receive_frame.m_sdata[1];
         }
         else
         {
@@ -333,7 +341,7 @@ void YawGimbalCalibrate(void)
     float yaw_left_reduction_ratio = 0;
     float yaw_right_reducion_ratio = 0;
 
-    if(G_sentry.yaw_calibrate_flag && !G_sentry.yaw_calibrate_flag_pre)
+    if(!G_sentry.yaw_calibrate_flag && G_sentry.yaw_calibrate_flag_pre)
     {
         yaw_left_encoder_pre = yaw_left_encoder;
         yaw_right_encoder_pre = yaw_right_encoder;
@@ -376,6 +384,7 @@ void YawGimbalCalibrate(void)
 void RobotTargetsUpdate(void)
 {
     ChassisTargetsUpdate();
+    GimbalTargrtUpdata();
 }
 
 
@@ -407,10 +416,23 @@ void ChassisTargetsUpdate(void)
 
 void OmnidirectionalChassisTargetUpdate(void)
 {
+    static float des_theta_pre = 0;
     float frl_speed_des = 0;
     float brl_speed_des = 0;
     float bll_speed_des = 0;
     float fll_speed_des = 0;
+    float des_theta = 0;
+    float detal_theta = 0;
+    float abs_chassis_angle = 0;
+    float detal_head_front = 0;
+    float detal_head_left = 0;
+    float detal_head_right = 0;
+    float detal_head_back = 0;
+    static uint8_t head_front_flag = 1;
+    static uint8_t head_left_flag = 1;
+    static uint8_t head_right_flag = 1;
+    static uint8_t head_back_flag = 1;
+
 
     if(G_sentry.chassis_mode == SentryRobot::CHASSIS_SAFE)
     {
@@ -429,15 +451,101 @@ void OmnidirectionalChassisTargetUpdate(void)
             else 
                 G_sentry.m_chassis_w = 0.0;
         }
+        if(G_sentry.m_chassis_w == 0.0 && G_sentry.yawgimbal_mode != SentryRobot::YAWGIMBAL_CALIBRATE)
+        {
+            abs_chassis_angle = G_sentry.m_world2chassis_angle;
+            while(abs_chassis_angle > 180.0f) 
+                abs_chassis_angle -= 360.0f;
+            while(abs_chassis_angle < -180.0f)
+                abs_chassis_angle += 360.0f;
+            if(sqrt(G_sentry.m_world_vx * G_sentry.m_world_vx + G_sentry.m_world_vy * G_sentry.m_world_vy) <= 0.01)
+                des_theta = des_theta_pre;
+            else
+            {
+                des_theta = safeAtan2(G_sentry.m_world_vy,G_sentry.m_world_vx)* RADIAN2DEGREE_VALUE;
+                des_theta_pre = des_theta;
+            }
+            detal_head_front = fabs(des_theta - abs_chassis_angle - CHASSIS_HEAD_FRONT);
+            detal_head_left = fabs(des_theta - abs_chassis_angle - CHASSIS_HEAD_LEFT);
+            detal_head_right = fabs(des_theta - abs_chassis_angle - CHASSIS_HEAD_RIGHT);
+            detal_head_back = fabs(des_theta - abs_chassis_angle - CHASSIS_HEAD_BACK);
 
-        frl_speed_des = -(G_sentry.m_world_vy*cosf((225.0f - G_sentry.m_world2chassis_angle)/RADIAN2DEGREE_VALUE) 
+            while(detal_head_front > 180.0f) 
+                detal_head_front -= 360.0f;
+
+            while(detal_head_left > 180.0f) 
+                detal_head_left -= 360.0f;
+
+            while(detal_head_right > 180.0f) 
+                detal_head_right -= 360.0f;
+
+            while(detal_head_back > 180.0f) 
+                detal_head_back -= 360.0f;
+                
+            if(fabs(detal_head_front) < 50.0f && head_front_flag)
+            {
+                detal_theta = des_theta  - (abs_chassis_angle + CHASSIS_HEAD_FRONT);
+                head_left_flag = 0;
+                head_right_flag = 0;
+            }
+            else
+            {
+                head_left_flag = 1;
+                head_right_flag = 1;
+            }
+
+            if(fabs(detal_head_left) < 50.0f && head_left_flag)
+            {
+                detal_theta = des_theta  - (abs_chassis_angle + CHASSIS_HEAD_LEFT);
+                head_front_flag = 0;
+                head_back_flag = 0;
+            }
+            else
+            {
+                head_front_flag = 1;
+                head_back_flag = 1;
+            }
+
+            if(fabs(detal_head_right) < 50.0f && head_right_flag)
+            {
+                detal_theta = des_theta  - (abs_chassis_angle + CHASSIS_HEAD_RIGHT);
+                head_front_flag = 0;
+                head_back_flag = 0;
+            }
+            else
+            {
+                head_front_flag = 1;
+                head_back_flag = 1;
+            }
+
+            if(fabs(detal_head_back) < 50.0f && head_back_flag)
+            {
+                detal_theta = des_theta  - (abs_chassis_angle + CHASSIS_HEAD_BACK);
+                head_right_flag = 0;
+                head_left_flag = 0;
+            }
+            else
+            {
+                head_right_flag = 1;
+                head_left_flag = 1;
+            }
+            
+            while(detal_theta > 180.0f) 
+                detal_theta -= 360.0f;
+            while(detal_theta < -180.0f)
+                detal_theta += 360.0f;
+            G_sentry.m_chassis_w = -0.01*detal_theta;
+        }
+        G_sentry.m_chassis_w = Clip(G_sentry.m_chassis_w,-0.2,0.2);
+
+        frl_speed_des = -(G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
                          + G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
         brl_speed_des = -(G_sentry.m_world_vy*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) 
-                        -G_sentry.m_world_vx*cosf((225.0f - G_sentry.m_world2chassis_angle)/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
-        bll_speed_des = (G_sentry.m_world_vy*cosf((225.0f - G_sentry.m_world2chassis_angle)/RADIAN2DEGREE_VALUE) 
+                        -G_sentry.m_world_vx*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
+        bll_speed_des = (G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
                         + G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
         fll_speed_des = (G_sentry.m_world_vy*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) 
-                        -G_sentry.m_world_vx*cosf((225.0f - G_sentry.m_world2chassis_angle)/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
+                        -G_sentry.m_world_vx*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
 
         G_sentry.SetChassisSpeedTarget(fll_speed_des,frl_speed_des,bll_speed_des,brl_speed_des);
     }
@@ -445,6 +553,19 @@ void OmnidirectionalChassisTargetUpdate(void)
 }
 
 
+void GimbalTargrtUpdata(void)
+{
+    if(G_sentry.gimbal_test_flag)
+    {
+        G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_angle_target = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_angle_current_encoder;
+        G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_angle_target = G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_angle_current_encoder;
+    }
+
+    else
+    {
+
+    }
+}
 /**
  *@brief execute the robot control
  *
@@ -452,6 +573,8 @@ void OmnidirectionalChassisTargetUpdate(void)
  */
 void RobotControlExecute(void)
 {
+    if(G_sentry.gimbal_test_flag)
+        G_sentry.ExecuteYawGimbakAlgorithm();
     // Execute the robot chassis control algorithm
     G_sentry.ExecuteChassisAlgorithm();
 

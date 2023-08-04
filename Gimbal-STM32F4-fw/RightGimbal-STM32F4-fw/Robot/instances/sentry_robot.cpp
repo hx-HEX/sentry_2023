@@ -46,17 +46,17 @@ void SentryRobot::InitAllActuators(void)
     shoot_motor[RIGHT_FRIC_MOTOR]->m_encoder = new AbsEncoder(RIGHT_FRIC_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);  
 
     gimbal_motor[GIMBAL_PITCH_MOTOR] = new GM6020(CAN1, GIMBAL_PITCH_MOTOR_ID, GIMBAL_MOTOR_REDUCTION_RATIO);
-    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_td = new Adrc_TD((float)2000, 0.01, 0.01,0);
-    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_pid = new Pid(10, 0.00, 0, 10, 20000, 20000, 5000, 2000);
-    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_speed_pid = new Pid(50, 0.00, 0, 10, 20000, 20000, 5000, 2000);
+    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_td = new Adrc_TD((float)2000, 0.01, 0.01,0.8);
+    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_pid = new Pid(50, 0.2, 0, 10, 20000, 20000, 5000, 2000);
+    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_speed_pid = new Pid(150, 0.00, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_encoder = new AbsEncoder(GIMBAL_PITCH_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);
 
     gimbal_motor[GIMBAL_YAW_MOTOR] = new GM6020(CAN1, GIMBAL_YAW_MOTOR_ID, GIMBAL_MOTOR_REDUCTION_RATIO);
-    gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_td = new Adrc_TD((float)2000, 0.01, 0.01,0);
-    gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_pid = new Pid(10, 0.01, 0, 10, 20000, 20000, 5000, 2000);
-    gimbal_motor[GIMBAL_YAW_MOTOR]->m_speed_pid = new Pid(30, 0.01, 0, 10, 20000, 20000, 5000, 2000);
+    gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_td = new Adrc_TD((float)20000, 0.01, 0.01,0.5);
+    gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_pid = new Pid(50, 0.08, 0, 10, 20000, 20000, 5000, 2000);
+    gimbal_motor[GIMBAL_YAW_MOTOR]->m_speed_pid = new Pid(150, 0.01, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_YAW_MOTOR]->m_encoder = new AbsEncoder(GIMBAL_YAW_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
     gimbal_motor[GIMBAL_YAW_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.001f, 0.1f);
     gimbal_motor[GIMBAL_YAW_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);
@@ -77,6 +77,7 @@ void SentryRobot::InitAllSensors(void)
         imu_flag = gimbal_imu[GIMBAL_FIRST_IMU]->Init(IMU_CALIBRATE);
     } while (imu_flag != 0);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_mahony_filter = new Mahony(0.001f, 0.5f, 0.001f);
+    gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_x = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_z = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_y = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
 }

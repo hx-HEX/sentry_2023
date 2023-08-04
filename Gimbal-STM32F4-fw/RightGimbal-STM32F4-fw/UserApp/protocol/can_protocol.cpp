@@ -17,13 +17,8 @@ void CAN_Decode(CANContext* context){
                 G_sentry.shoot_motor[SentryRobot::RIGHT_FRIC_MOTOR]->m_smc->m_fpFB = 
                 GetMotorSpeed(&(context->CANx_RxMsg.Data[0]));
                 G_sentry.shoot_motor[SentryRobot::RIGHT_FRIC_MOTOR]->m_state_update_times++;
-                break;      
-        }
-    }
-    else if(context->CANx == CAN2){
-        switch(context->CANx_RxMsg.StdId)
-        {
-           case (0x204 + GIMBAL_PITCH_MOTOR_ID):	
+                break;  
+			case (0x204 + GIMBAL_PITCH_MOTOR_ID):	
                 G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->
                 EncoderAngleUpdate(GetEncoderNumber(&(context->CANx_RxMsg.Data[0])));
                 G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->
@@ -36,7 +31,13 @@ void CAN_Decode(CANContext* context){
                 G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->
                 EncoderSpeedUpdate(GetMotorSpeed(&(context->CANx_RxMsg.Data[0])));
                 G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_state_update_times++;
-                break;    
+                break;  
+        }
+    }
+    else if(context->CANx == CAN2){
+        switch(context->CANx_RxMsg.StdId)
+        {
+  
         }
     }
 }

@@ -20,8 +20,8 @@
 #define ENCODER_RESOLUTION ( (uint32_t) 8192)
 
 // The reduction ratio of chassis motor
-#define CHASSIS_SPEED_MOTOR_REDUCTION_RATIO ( (uint32_t) 19 )
-#define YAW_GIMBAL_MOTOR_REDUCTION_RAITO ((uint32_t) 19)
+#define CHASSIS_SPEED_MOTOR_REDUCTION_RATIO ( (float) 115.853271 )
+#define YAW_GIMBAL_MOTOR_REDUCTION_RAITO ((float) 115.846558)
 
 // Motor ID(same type motors should have different ID)
 #define CHASSIS_FRL_MOTOR_ID ( (uint8_t) 3)
@@ -29,7 +29,7 @@
 #define CHASSIS_BLL_MOTOR_ID ( (uint8_t) 1 )
 #define CHASSIS_FLL_MOTOR_ID ( (uint8_t) 4 )
 #define YAW_GIMBAL_LEFT_MOTOR_ID ( (uint8_t) 1)
-#define YAW_GIMBAL_RIGHT_MOTOR_ID ( (uint8_t) 2)
+#define YAW_GIMBAL_RIGHT_MOTOR_ID ( (uint8_t) 3)
 
 // Motor number
 #define CHASSIS_LINE_MOTOR_NUM ( (uint8_t) 4 )
@@ -49,7 +49,7 @@
 #ifdef CHASSIS_OMNIDIRECTIONAL_MODE
 #define CHASSIS_MANNAL_LINE_SPEED_MAX                              ( (float)(2.0) )
 #define CHASSIS_MANNAL_SPIN_SPEED_MAX                                ( (float)(1.0) )
-#define CHASSIS_LINE_SPEED_MAX                              ( (float)(2.8) )
+#define CHASSIS_LINE_SPEED_MAX                              ( (float)(2.0) )
 #define CHASSIS_SPIN_SPEED_MAX                              ( (float)(1.0) )
 #endif
 
@@ -64,7 +64,14 @@
 #define PRESS_X                                       88
 #define PRESS_Z                                       90
 
-#define CHASSIS_WHEEL_RADIUS                                (float)(0.07f)
+#define CHASSIS_WHEEL_RADIUS                                (float)(0.078f)
+
+#define CHASSIS_ZERO_DIRECTION_ERR                           (float)(-157.5f)
+
+#define CHASSIS_HEAD_FRONT         0
+#define CHASSIS_HEAD_RIGHT        -90
+#define CHASSIS_HEAD_LEFT          90
+#define CHASSIS_HEAD_BACK         -180
 
 
 class SentryRobot {
@@ -80,7 +87,8 @@ public:
     enum YawGimbalMode{
         YAWGIMBAL_SAFE = 0,
         YAWGIMBAL_CALIBRATE,
-        YAWGIMBAL_MOVE
+        YAWGIMBAL_MOVE,
+        YAWGIMBAL_STATIC
     };
     YawGimbalMode yawgimbal_mode;
     YawGimbalMode yawgimbal_mode_pre;
@@ -110,6 +118,8 @@ public:
 
     uint8_t yaw_calibrate_flag;
     uint8_t yaw_calibrate_flag_pre;
+
+    uint8_t gimbal_test_flag;
 
 // steer drive value
 

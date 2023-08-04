@@ -128,18 +128,6 @@ void SentryRobot::SendControlCommand(void)
         can1_context.CANx_TxMsg.Data[i] = 0;
         can2_context.CANx_TxMsg.Data[i] = 0;
     }
-    if(trans_cnt > 2000){
-        can1_context.CanSendMessage();
-        can2_context.CanSendMessage();
-    }
-
-    // CAN1 ID 0x1ff    CAN2 ID 0x1ff
-    can1_context.CANx_TxMsg.StdId = 0x1ff;
-    can2_context.CANx_TxMsg.StdId = 0x1ff;
-    for (int i = 0; i < 8; i++) {
-        can1_context.CANx_TxMsg.Data[i] = 0;
-        can2_context.CANx_TxMsg.Data[i] = 0;
-    }
     for(uint8_t i = 0; i < SHOOT_MOTOR_NUM; i++)
     {
         uint32_t id = shoot_motor[i]->m_id;
@@ -161,7 +149,20 @@ void SentryRobot::SendControlCommand(void)
                 can2_context.CANx_TxMsg.Data[(id - 5) * 2 + 1] = (uint8_t)(cmd);
             }
         }
-    }   
+    } 
+    if(trans_cnt > 2000){
+        can1_context.CanSendMessage();
+        can2_context.CanSendMessage();
+    }
+  
+    // CAN1 ID 0x1ff    CAN2 ID 0x1ff
+    can1_context.CANx_TxMsg.StdId = 0x1ff;
+    can2_context.CANx_TxMsg.StdId = 0x1ff;
+    for (int i = 0; i < 8; i++) {
+        can1_context.CANx_TxMsg.Data[i] = 0;
+        can2_context.CANx_TxMsg.Data[i] = 0;
+    }
+
     if(trans_cnt > 2000){
         can1_context.CanSendMessage();
         can2_context.CanSendMessage();

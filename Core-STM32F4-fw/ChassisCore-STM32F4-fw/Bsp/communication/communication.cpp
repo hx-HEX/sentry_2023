@@ -6,6 +6,7 @@
 
 void InitCommunication(void){
     //串口类配置
+    G_referee.SetUartHandle(USART2);
     G_vofa.SetUartHandle(USART3);
     G_gimbal.SetUartHandle(UART4);
 
@@ -15,6 +16,7 @@ void InitCommunication(void){
 }
 
 void StartCommunication(void){
+    USART_ITConfig(USART2,USART_IT_IDLE,ENABLE); //开启空闲中断
     USART_ITConfig(USART3,USART_IT_IDLE,ENABLE); //开启空闲中断
     USART_ITConfig(UART4,USART_IT_IDLE,ENABLE); //开启空闲中断
 

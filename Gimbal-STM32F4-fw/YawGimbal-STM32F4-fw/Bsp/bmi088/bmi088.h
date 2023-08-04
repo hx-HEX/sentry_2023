@@ -34,16 +34,16 @@
 #define BMI088_GYRO_125_SEN  0.000066579027251980956150958662738366f
 
 // sentry robot
-#define GYRO_X_OFFSET          0.000392445538
-#define GYRO_Y_OFFSET          -0.000426955899
-#define GYRO_Z_OFFSET          0.000955480093
+#define GYRO_X_OFFSET          0.00197531749
+#define GYRO_Y_OFFSET          -0.00709799863
+#define GYRO_Z_OFFSET          -7.85505399e-05
 
 // temp 
 // #define GYRO_X_OFFSET             -0.000506517827
 // #define GYRO_Y_OFFSET             0.00216058665
 // #define GYRO_Z_OFFSET             -0.00288705388
 
-#define OFFSET_CALIBRATE_TIMES    2500000
+#define OFFSET_CALIBRATE_TIMES    250000
 
 
 

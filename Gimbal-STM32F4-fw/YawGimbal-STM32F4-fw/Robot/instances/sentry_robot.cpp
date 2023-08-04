@@ -37,8 +37,8 @@ void SentryRobot::InitAllActuators(void)
 {
     yaw_gimbal_motor[LEFT_YAW_MOTOR] = new M3508(CAN2, YAW_GIMBAL_LEFT_MOTOR_ID, YAW_GIMBAL_MOTOR_REDUCTION_RAITO);
     yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_angle_td = new Adrc_TD(7000, 0.001, 0.001,0);
-    yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_angle_pid = new Pid(0, 0.00, 0, 10, 2000, 2000, 5000, 2000);
-    yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_speed_pid = new Pid(40, 0.00, 0, 10, 10000, 10000, 5000, 2000);
+    yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_angle_pid = new Pid(25, 0.005, 0, 10, 2000, 2000, 5000, 2000);
+    yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_speed_pid = new Pid(70, 0.00, 0, 10, 10000, 10000, 5000, 2000);
     yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_encoder = new AbsEncoder(YAW_GIMBAL_LEFT_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION); 
     yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.8f, 0.01f);
     yaw_gimbal_motor[LEFT_YAW_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);
@@ -46,8 +46,8 @@ void SentryRobot::InitAllActuators(void)
 
     yaw_gimbal_motor[RIGHT_YAW_MOTOR] = new M3508(CAN2, YAW_GIMBAL_RIGHT_MOTOR_ID, YAW_GIMBAL_MOTOR_REDUCTION_RAITO);
     yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_angle_td = new Adrc_TD(7000, 0.001, 0.001,0);
-    yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_angle_pid = new Pid(0, 0.00, 0, 10, 2000, 2000, 5000, 2000);
-    yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_speed_pid = new Pid(40, 0.00, 0, 10, 10000, 10000, 5000, 2000);
+    yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_angle_pid = new Pid(25, 0.005, 0, 10, 2000, 2000, 5000, 2000);
+    yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_speed_pid = new Pid(70, 0.00, 0, 10, 10000, 10000, 5000, 2000);
     yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_encoder = new AbsEncoder(YAW_GIMBAL_RIGHT_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION); 
     yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.8f, 0.01f);
     yaw_gimbal_motor[RIGHT_YAW_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);

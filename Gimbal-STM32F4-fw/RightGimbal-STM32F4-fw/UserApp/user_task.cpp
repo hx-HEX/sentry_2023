@@ -82,9 +82,7 @@ void DataVisualTask(void *pvParameters) {
 		TaskStartTime = TIME();
 		
 		// the ID of mdata should be less than 15
-		#ifdef GIMBAL_DEBUG
-		G_VisualizeGimbalData();
-		#endif
+		VisualData();
 		
 		G_vofa.m_data_send_frame.m_data[15] = G_system_monitor.SysTickTime;
 

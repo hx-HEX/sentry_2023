@@ -423,6 +423,7 @@ void BMI088::UpdataGyroData(void)
     gyro_raw_temp = (int16_t)(((buff[5]) << 8) | buff[4]);
     m_gyro_data.z = gyro_raw_temp * BMI088_GYRO_1000_SEN - m_gyro_offset_z;
 
+    m_kalman_filter_gyro_x->UpdateFilter(m_gyro_data.x);
     m_kalman_filter_gyro_z->UpdateFilter(m_gyro_data.z);
     m_kalman_filter_gyro_y->UpdateFilter(m_gyro_data.y);
 }

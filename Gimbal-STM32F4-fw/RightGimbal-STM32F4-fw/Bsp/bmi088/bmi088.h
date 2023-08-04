@@ -84,6 +84,7 @@ public:
     Bmi088AccData m_acc_data;
     Bmi088GyroData m_gyro_data;
     Mahony* m_mahony_filter;
+    Kalman* m_kalman_filter_gyro_x;
     Kalman* m_kalman_filter_gyro_z;
     Kalman* m_kalman_filter_gyro_y;
     float m_gyro_offset_x;
