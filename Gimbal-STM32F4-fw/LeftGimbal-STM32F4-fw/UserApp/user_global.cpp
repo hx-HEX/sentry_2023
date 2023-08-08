@@ -82,8 +82,12 @@ void VisualData(void)
 {
     G_vofa.m_data_send_frame.m_data[0] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_target;
     G_vofa.m_data_send_frame.m_data[1] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current;
-    G_vofa.m_data_send_frame.m_data[2] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_target;
-    G_vofa.m_data_send_frame.m_data[3] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current;
+    G_vofa.m_data_send_frame.m_data[2] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_raw_value;
+    G_vofa.m_data_send_frame.m_data[3] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_sum_value;
+    G_vofa.m_data_send_frame.m_data[4] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_target;
+    G_vofa.m_data_send_frame.m_data[5] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current;
+    G_vofa.m_data_send_frame.m_data[6] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_raw_value;
+    G_vofa.m_data_send_frame.m_data[7] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_sum_value;
     
 }
 

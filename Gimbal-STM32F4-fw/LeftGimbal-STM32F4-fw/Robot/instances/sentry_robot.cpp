@@ -205,7 +205,8 @@ void SentryRobot::ExecuteGimbalAlgorithm(void)
 */
 void SentryRobot::SendControlCommand(void)
 {
-    static uint16_t trans_cnt = 0;//待上电后电平稳定再执行发送函数
+    uint8_t transmint_1;
+    uint8_t transmint_2;
 
     // CAN1 ID 0x200    CAN2 ID 0x200
     can1_context.CANx_TxMsg.StdId = 0x200;
@@ -229,9 +230,20 @@ void SentryRobot::SendControlCommand(void)
         }
     }
 
-    if(trans_cnt > 2000){
-        can1_context.CanSendMessage();
-        can2_context.CanSendMessage();
+    transmint_1 = can1_context.CanSendMessage();
+    transmint_2 = can2_context.CanSendMessage();
+
+    if(transmint_1 == CAN_TxStatus_NoMailBox)
+    {   
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ2;
+    }
+    if(transmint_2 == CAN_TxStatus_NoMailBox)
+    {   
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ2;
     }
 
 
@@ -257,11 +269,19 @@ void SentryRobot::SendControlCommand(void)
         }
     }
 
-    if(trans_cnt > 2000){
-        can1_context.CanSendMessage();
-        can2_context.CanSendMessage();
-    }
+    transmint_1 = can1_context.CanSendMessage();
+    transmint_2 = can2_context.CanSendMessage();
 
-    trans_cnt++;
-    if(trans_cnt > 2500) trans_cnt=2500;
+    if(transmint_1 == CAN_TxStatus_NoMailBox)
+    {   
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ2;
+    }
+    if(transmint_2 == CAN_TxStatus_NoMailBox)
+    {   
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ2;
+    }
 }

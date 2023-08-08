@@ -357,7 +357,7 @@ void USART6_Configuration(void)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;//IRQ通道使能 
 	NVIC_Init(&NVIC_InitStructure);//根据指定的参数初始化VIC寄存器
 
-	USART6_InitStructure.USART_BaudRate = 460800;//波特率
+	USART6_InitStructure.USART_BaudRate = 921600;//波特率
 	USART6_InitStructure.USART_WordLength = USART_WordLength_8b;//字长为8位数据格式
 	USART6_InitStructure.USART_StopBits = USART_StopBits_1;//一个停止位
 	USART6_InitStructure.USART_Parity = USART_Parity_No;//无奇偶校验位

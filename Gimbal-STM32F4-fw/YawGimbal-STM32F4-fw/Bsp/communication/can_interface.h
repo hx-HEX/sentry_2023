@@ -10,7 +10,7 @@ public:
     CanTxMsg CANx_TxMsg;
 
     void CAN_Init(CAN_TypeDef * hCANx,uint8_t ide,uint8_t rtr, uint8_t dlc);
-    void CanSendMessage(void);
+    uint8_t CanSendMessage(void);
 
     CANContext() {};
     ~CANContext() {};

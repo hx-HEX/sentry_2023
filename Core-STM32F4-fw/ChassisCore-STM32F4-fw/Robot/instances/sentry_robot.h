@@ -110,6 +110,7 @@ public:
     Capacitor* capacitor;
 
     float m_yaw_angle;
+    float m_speed_angle;
 
     uint8_t spinning_flag;
     uint8_t ctrl_spinning_flag;
@@ -120,6 +121,8 @@ public:
     uint8_t yaw_calibrate_flag_pre;
 
     uint8_t gimbal_test_flag;
+
+    float chassis_speed;
 
 // steer drive value
 

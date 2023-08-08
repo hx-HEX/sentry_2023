@@ -695,6 +695,7 @@ void RobotStatesUpdate(void)
         G_sentry.m_shoot_speed_filter->Update(G_referee.ShootData_2.bullet_speed);
     }
     G_sentry.m_shoot_speed_pre_2 = G_referee.ShootData_2.bullet_speed;
+
 }
 
 /**

@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry-Core.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry-Core.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Fri Aug  4 04:54:07 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sun Aug  6 06:28:23 2023
 <BR><P>
 <H3>Maximum Stack Usage =        344 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -559,7 +559,7 @@ Global Symbols
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendRefereeData()
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Decode(unsigned)
 <LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GimbalDataDecode(unsigned char*)
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ZL11MatchRSDatatPht
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ZL11MatchRSDatatPht
 </UL>
 
 <P><STRONG><a name="[7e]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
@@ -588,7 +588,7 @@ Global Symbols
 
 <P><STRONG><a name="[1da]"></a>_memset</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr.o(.text), UNUSED)
 
-<P><STRONG><a name="[ff]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
+<P><STRONG><a name="[101]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::M3508__sub_object(CAN_TypeDef*, unsigned, float)
@@ -644,7 +644,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_log
 <LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
@@ -880,7 +880,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_CAN_RX_Callback
 </UL>
 
-<P><STRONG><a name="[106]"></a>CAN_ITConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_can.o(.text.CAN_ITConfig))
+<P><STRONG><a name="[108]"></a>CAN_ITConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f4xx_can.o(.text.CAN_ITConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartCommunication()
 </UL>
 
@@ -1299,7 +1299,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;User_UART_RX_Callback
 </UL>
 
-<P><STRONG><a name="[105]"></a>USART_ITConfig</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text.USART_ITConfig))
+<P><STRONG><a name="[107]"></a>USART_ITConfig</STRONG> (Thumb, 46 bytes, Stack size 0 bytes, stm32f4xx_usart.o(.text.USART_ITConfig))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;StartCommunication()
 </UL>
 
@@ -1425,7 +1425,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UserMain
 </UL>
 
-<P><STRONG><a name="[e4]"></a>SendGimbalData()</STRONG> (Thumb, 94 bytes, Stack size 8 bytes, user_global.o(.text._Z14SendGimbalDatav))
+<P><STRONG><a name="[e4]"></a>SendGimbalData()</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, user_global.o(.text._Z14SendGimbalDatav))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SendGimbalData() &rArr; Gimbal::SendData() &rArr; Usart::USART_Transmit()
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Gimbal::SendData()
@@ -1483,17 +1483,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UserMain
 </UL>
 
-<P><STRONG><a name="[ec]"></a>RobotStatesUpdate()</STRONG> (Thumb, 528 bytes, Stack size 48 bytes, user_global.o(.text._Z17RobotStatesUpdatev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = RobotStatesUpdate() &rArr; Capacitor::PowerDesUpdate(float) &rArr; __aeabi_f2d
+<P><STRONG><a name="[ec]"></a>RobotStatesUpdate()</STRONG> (Thumb, 816 bytes, Stack size 64 bytes, user_global.o(.text._Z17RobotStatesUpdatev))
+<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = RobotStatesUpdate() &rArr; safeAtan2(float, float) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Capacitor::UpdateChargingPower(float, float, float)
 <LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Capacitor::PowerJudgeByVol()
 <LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Capacitor::PowerDesUpdate(float)
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::SpeedUpdate(unsigned char, float)
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safeAtan2(float, float)
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpge
 <LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;YawGimbalCalibrate()
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotControlTask(void*)
 </UL>
@@ -1501,9 +1503,9 @@ Global Symbols
 <P><STRONG><a name="[5e]"></a>SystemMonitorTask(void*)</STRONG> (Thumb, 74 bytes, Stack size 0 bytes, user_task.o(.text._Z17SystemMonitorTaskPv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = SystemMonitorTask(void*) &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led::TogglePink()
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led::TogglePink()
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommunicationMonitor()
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommunicationMonitor()
 <LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MotorMonitor()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_task.o(.text._Z14LaunchAllTasksv)
@@ -1511,17 +1513,17 @@ Global Symbols
 <P><STRONG><a name="[d6]"></a>UART_RSDataDecode(unsigned char*, unsigned short)</STRONG> (Thumb, 274 bytes, Stack size 288 bytes, uart_protocol.o(.text._Z17UART_RSDataDecodePht))
 <BR><BR>[Stack]<UL><LI>Max Depth = 312<LI>Call Chain = UART_RSDataDecode(unsigned char*, unsigned short) &rArr; Verify_CRC16_Check_Sum(unsigned char*, unsigned) &rArr; Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC16_Check_Sum(unsigned char*, unsigned)
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC8_Check_Sum(unsigned char*, unsigned)
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ZL11MatchRSDatatPht
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC16_Check_Sum(unsigned char*, unsigned)
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC8_Check_Sum(unsigned char*, unsigned)
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ZL11MatchRSDatatPht
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Decode(unsigned)
 </UL>
 
-<P><STRONG><a name="[10e]"></a>Get_CRC8_Check_Sum(unsigned char*, unsigned, unsigned char)</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, verify.o(.text._Z18Get_CRC8_Check_SumPhjh))
-<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC8_Check_Sum(unsigned char*, unsigned)
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Append_CRC8_Check_Sum(unsigned char*, unsigned)
+<P><STRONG><a name="[110]"></a>Get_CRC8_Check_Sum(unsigned char*, unsigned, unsigned char)</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, verify.o(.text._Z18Get_CRC8_Check_SumPhjh))
+<BR><BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC8_Check_Sum(unsigned char*, unsigned)
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Append_CRC8_Check_Sum(unsigned char*, unsigned)
 </UL>
 
 <P><STRONG><a name="[5f]"></a>GimbalDataSendTask(void*)</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, user_task.o(.text._Z18GimbalDataSendTaskPv))
@@ -1532,15 +1534,15 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> user_task.o(.text._Z14LaunchAllTasksv)
 </UL>
-<P><STRONG><a name="[104]"></a>GimbalTargrtUpdata()</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, user_global.o(.text._Z18GimbalTargrtUpdatav))
+<P><STRONG><a name="[106]"></a>GimbalTargrtUpdata()</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, user_global.o(.text._Z18GimbalTargrtUpdatav))
 <BR><BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotTargetsUpdate()
 </UL>
 
 <P><STRONG><a name="[ed]"></a>RobotTargetsUpdate()</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, user_global.o(.text._Z18RobotTargetsUpdatev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = RobotTargetsUpdate() &rArr; ChassisTargetsUpdate() &rArr; OmnidirectionalChassisTargetUpdate() &rArr; safeAtan2(float, float) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChassisTargetsUpdate()
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GimbalTargrtUpdata()
+<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChassisTargetsUpdate()
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GimbalTargrtUpdata()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotControlTask(void*)
 </UL>
@@ -1548,8 +1550,8 @@ Global Symbols
 <P><STRONG><a name="[c2]"></a>StartCommunication()</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, communication.o(.text._Z18StartCommunicationv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = StartCommunication()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ITConfig
+<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ITConfig
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_ITConfig
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UserMain
 </UL>
@@ -1560,10 +1562,10 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotStatesUpdate()
 </UL>
 
-<P><STRONG><a name="[10f]"></a>Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, verify.o(.text._Z19Get_CRC16_Check_SumPhjt))
+<P><STRONG><a name="[111]"></a>Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, verify.o(.text._Z19Get_CRC16_Check_SumPhjt))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC16_Check_Sum(unsigned char*, unsigned)
+<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC16_Check_Sum(unsigned char*, unsigned)
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Append_CRC16_Check_Sum(unsigned char*, unsigned)
 </UL>
 
@@ -1578,34 +1580,34 @@ Global Symbols
 <P><STRONG><a name="[ee]"></a>RobotControlExecute()</STRONG> (Thumb, 50 bytes, Stack size 8 bytes, user_global.o(.text._Z19RobotControlExecutev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 328<LI>Call Chain = RobotControlExecute() &rArr; SentryRobot::ExecuteChassisAlgorithm() &rArr; SentryRobot::Power_Control() &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteYawGimbakAlgorithm()
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteChassisAlgorithm()
-<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
+<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteYawGimbakAlgorithm()
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteChassisAlgorithm()
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotControlTask(void*)
 </UL>
 
-<P><STRONG><a name="[103]"></a>ChassisTargetsUpdate()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, user_global.o(.text._Z20ChassisTargetsUpdatev))
+<P><STRONG><a name="[105]"></a>ChassisTargetsUpdate()</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, user_global.o(.text._Z20ChassisTargetsUpdatev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ChassisTargetsUpdate() &rArr; OmnidirectionalChassisTargetUpdate() &rArr; safeAtan2(float, float) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotTargetsUpdate()
 </UL>
 
-<P><STRONG><a name="[fe]"></a>CommunicationMonitor()</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, user_global.o(.text._Z20CommunicationMonitorv))
+<P><STRONG><a name="[100]"></a>CommunicationMonitor()</STRONG> (Thumb, 66 bytes, Stack size 8 bytes, user_global.o(.text._Z20CommunicationMonitorv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = CommunicationMonitor()
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led::ToggleOrange()
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led::ToggleBlue()
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led::ToggleOrange()
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Led::ToggleBlue()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemMonitorTask(void*)
 </UL>
 
-<P><STRONG><a name="[10d]"></a>Append_CRC8_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, verify.o(.text._Z21Append_CRC8_Check_SumPhj))
+<P><STRONG><a name="[10f]"></a>Append_CRC8_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 30 bytes, Stack size 16 bytes, verify.o(.text._Z21Append_CRC8_Check_SumPhj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Append_CRC8_Check_Sum(unsigned char*, unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC8_Check_Sum(unsigned char*, unsigned, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC8_Check_Sum(unsigned char*, unsigned, unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Referee::Referee__sub_object()
 </UL>
@@ -1614,15 +1616,15 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = UART_GimbalDataDecode(unsigned char*) &rArr; Verify_CRC16_Check_Sum(unsigned char*, unsigned) &rArr; Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC16_Check_Sum(unsigned char*, unsigned)
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Verify_CRC16_Check_Sum(unsigned char*, unsigned)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Decode(unsigned)
 </UL>
 
-<P><STRONG><a name="[100]"></a>Verify_CRC8_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, verify.o(.text._Z21Verify_CRC8_Check_SumPhj))
+<P><STRONG><a name="[102]"></a>Verify_CRC8_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, verify.o(.text._Z21Verify_CRC8_Check_SumPhj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Verify_CRC8_Check_Sum(unsigned char*, unsigned)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC8_Check_Sum(unsigned char*, unsigned, unsigned char)
+<BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC8_Check_Sum(unsigned char*, unsigned, unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_RSDataDecode(unsigned char*, unsigned short)
 </UL>
@@ -1630,34 +1632,34 @@ Global Symbols
 <P><STRONG><a name="[e8]"></a>Append_CRC16_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, verify.o(.text._Z22Append_CRC16_Check_SumPhj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Append_CRC16_Check_Sum(unsigned char*, unsigned) &rArr; Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendRefereeData()
 </UL>
 
-<P><STRONG><a name="[101]"></a>Verify_CRC16_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, verify.o(.text._Z22Verify_CRC16_Check_SumPhj))
+<P><STRONG><a name="[103]"></a>Verify_CRC16_Check_Sum(unsigned char*, unsigned)</STRONG> (Thumb, 70 bytes, Stack size 16 bytes, verify.o(.text._Z22Verify_CRC16_Check_SumPhj))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Verify_CRC16_Check_Sum(unsigned char*, unsigned) &rArr; Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Get_CRC16_Check_Sum(unsigned char*, unsigned, unsigned short)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_GimbalDataDecode(unsigned char*)
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_RSDataDecode(unsigned char*, unsigned short)
 </UL>
 
-<P><STRONG><a name="[10a]"></a>OmnidirectionalChassisTargetUpdate()</STRONG> (Thumb, 1132 bytes, Stack size 72 bytes, user_global.o(.text._Z34OmnidirectionalChassisTargetUpdatev))
+<P><STRONG><a name="[10c]"></a>OmnidirectionalChassisTargetUpdate()</STRONG> (Thumb, 1124 bytes, Stack size 72 bytes, user_global.o(.text._Z34OmnidirectionalChassisTargetUpdatev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = OmnidirectionalChassisTargetUpdate() &rArr; safeAtan2(float, float) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safeAtan2(float, float)
+<BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safeAtan2(float, float)
 <LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Clip(float, float, float)
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SetChassisSpeedTarget(float, float, float, float)
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_cosf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChassisTargetsUpdate()
+<BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChassisTargetsUpdate()
 </UL>
 
 <P><STRONG><a name="[13a]"></a>Sgn(float)</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, common_math.o(.text._Z3Sgnf))
@@ -1666,19 +1668,22 @@ Global Symbols
 
 <P><STRONG><a name="[115]"></a>Clip(float, float, float)</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, common_math.o(.text._Z4Clipfff))
 <BR><BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid::CalWeakenPID(float)
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
-<P><STRONG><a name="[112]"></a>safeAtan2(float, float)</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, common_math.o(.text._Z9safeAtan2ff))
+<P><STRONG><a name="[fe]"></a>safeAtan2(float, float)</STRONG> (Thumb, 176 bytes, Stack size 8 bytes, common_math.o(.text._Z9safeAtan2ff))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = safeAtan2(float, float) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<BR>[Called By]<UL><LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotStatesUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
-<P><STRONG><a name="[132]"></a>AbsEncoder::EncodeValueUpdate(unsigned)</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, encoder.o(.text._ZN10AbsEncoder17EncodeValueUpdateEj))
-<BR><BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::EncoderAngleUpdate(unsigned)
+<P><STRONG><a name="[132]"></a>AbsEncoder::EncodeValueUpdate(unsigned)</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, encoder.o(.text._ZN10AbsEncoder17EncodeValueUpdateEj))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = AbsEncoder::EncodeValueUpdate(unsigned)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::EncoderAngleUpdate(unsigned)
 </UL>
 
 <P><STRONG><a name="[127]"></a>AbsEncoder::AbsEncoder__sub_object(unsigned, unsigned)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sentry_robot.o(.text._ZN10AbsEncoderC2Ejj))
@@ -1690,7 +1695,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Transmit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
+<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
 </UL>
 
 <P><STRONG><a name="[f4]"></a>CANContext::CAN_Init(CAN_TypeDef*, unsigned char, unsigned char, unsigned char)</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, can_interface.o(.text._ZN10CANContext8CAN_InitEP11CAN_TypeDefhhh))
@@ -1701,16 +1706,16 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 304<LI>Call Chain = SentryRobot::Power_Control() &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid::CalWeakenPID(float)
-<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
 <LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2f
 <LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_log
+<LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteChassisAlgorithm()
+<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteChassisAlgorithm()
 </UL>
 
 <P><STRONG><a name="[120]"></a>SentryRobot::InitAllSensors()</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, sentry_robot.o(.text._ZN11SentryRobot14InitAllSensorsEv))
@@ -1744,7 +1749,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ControlModeUpdate()
 </UL>
 
-<P><STRONG><a name="[109]"></a>SentryRobot::SendControlCommand()</STRONG> (Thumb, 408 bytes, Stack size 32 bytes, sentry_robot.o(.text._ZN11SentryRobot18SendControlCommandEv))
+<P><STRONG><a name="[10b]"></a>SentryRobot::SendControlCommand()</STRONG> (Thumb, 502 bytes, Stack size 32 bytes, sentry_robot.o(.text._ZN11SentryRobot18SendControlCommandEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = SentryRobot::SendControlCommand() &rArr; CANContext::CanSendMessage() &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Capacitor::CapVolLimit()
@@ -1754,10 +1759,10 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[117]"></a>SentryRobot::SetChassisSpeedTarget(float, float, float, float)</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, sentry_robot.o(.text._ZN11SentryRobot21SetChassisSpeedTargetEffff))
-<BR><BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<BR><BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
-<P><STRONG><a name="[108]"></a>SentryRobot::ExecuteChassisAlgorithm()</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, sentry_robot.o(.text._ZN11SentryRobot23ExecuteChassisAlgorithmEv))
+<P><STRONG><a name="[10a]"></a>SentryRobot::ExecuteChassisAlgorithm()</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, sentry_robot.o(.text._ZN11SentryRobot23ExecuteChassisAlgorithmEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = SentryRobot::ExecuteChassisAlgorithm() &rArr; SentryRobot::Power_Control() &rArr; __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::SpeedControl()
@@ -1766,7 +1771,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotControlExecute()
 </UL>
 
-<P><STRONG><a name="[107]"></a>SentryRobot::ExecuteYawGimbakAlgorithm()</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, sentry_robot.o(.text._ZN11SentryRobot25ExecuteYawGimbakAlgorithmEv))
+<P><STRONG><a name="[109]"></a>SentryRobot::ExecuteYawGimbakAlgorithm()</STRONG> (Thumb, 32 bytes, Stack size 16 bytes, sentry_robot.o(.text._ZN11SentryRobot25ExecuteYawGimbakAlgorithmEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = SentryRobot::ExecuteYawGimbakAlgorithm() &rArr; M3508::AngleControl() &rArr; Adrc_TD::CalAdrcTD(float) &rArr; __hardfp_sqrtf &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::AngleControl()
@@ -1789,11 +1794,11 @@ Global Symbols
 
 <P><STRONG><a name="[1f0]"></a>SentryRobot::SentryRobot__sub_object()</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, sentry_robot.o(.text._ZN11SentryRobotC2Ev), UNUSED)
 
-<P><STRONG><a name="[10b]"></a>Led::ToggleBlue()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(.text._ZN3Led10ToggleBlueEv))
-<BR><BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommunicationMonitor()
+<P><STRONG><a name="[10d]"></a>Led::ToggleBlue()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(.text._ZN3Led10ToggleBlueEv))
+<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommunicationMonitor()
 </UL>
 
-<P><STRONG><a name="[fd]"></a>Led::TogglePink()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(.text._ZN3Led10TogglePinkEv))
+<P><STRONG><a name="[ff]"></a>Led::TogglePink()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(.text._ZN3Led10TogglePinkEv))
 <BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemMonitorTask(void*)
 </UL>
 
@@ -1801,8 +1806,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MotorMonitor()
 </UL>
 
-<P><STRONG><a name="[10c]"></a>Led::ToggleOrange()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(.text._ZN3Led12ToggleOrangeEv))
-<BR><BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommunicationMonitor()
+<P><STRONG><a name="[10e]"></a>Led::ToggleOrange()</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, led.o(.text._ZN3Led12ToggleOrangeEv))
+<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CommunicationMonitor()
 </UL>
 
 <P><STRONG><a name="[db]"></a>Led::SetGreen(bool)</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, led.o(.text._ZN3Led8SetGreenEb))
@@ -1846,7 +1851,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Vofa::Vofa__sub_object() &rArr; operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart::Usart__sub_object()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ce]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxx_global_var_init.1
@@ -1866,7 +1871,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adrc_TD::CalAdrcTD(float)
 <LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid::CalWeakenPID(float)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteYawGimbakAlgorithm()
+<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteYawGimbakAlgorithm()
 </UL>
 
 <P><STRONG><a name="[12a]"></a>M3508::SpeedControl()</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, m3508.o(.text._ZN5M350812SpeedControlEv))
@@ -1874,11 +1879,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Pid::CalWeakenPID(float)
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteChassisAlgorithm()
+<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteChassisAlgorithm()
 </UL>
 
-<P><STRONG><a name="[d2]"></a>M3508::EncoderAngleUpdate(unsigned)</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, m3508.o(.text._ZN5M350818EncoderAngleUpdateEj))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = M3508::EncoderAngleUpdate(unsigned) &rArr; Kalman::UpdateFilter(float)
+<P><STRONG><a name="[d2]"></a>M3508::EncoderAngleUpdate(unsigned)</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, m3508.o(.text._ZN5M350818EncoderAngleUpdateEj))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = M3508::EncoderAngleUpdate(unsigned) &rArr; AbsEncoder::EncodeValueUpdate(unsigned)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsEncoder::EncodeValueUpdate(unsigned)
 <LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Kalman::GetFilterOutput()
@@ -1899,7 +1904,7 @@ Global Symbols
 <P><STRONG><a name="[125]"></a>M3508::M3508__sub_object(CAN_TypeDef*, unsigned, float)</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, sentry_robot.o(.text._ZN5M3508C2EP11CAN_TypeDefjf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = M3508::M3508__sub_object(CAN_TypeDef*, unsigned, float) &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
 <BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::InitAllActuators()
 </UL>
@@ -2002,7 +2007,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = Adrc_TD::CalAdrcTD(float) &rArr; __hardfp_sqrtf &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sgn(float)
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M3508::AngleControl()
 </UL>
@@ -2035,13 +2040,13 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 <LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Usart::Usart__sub_object()
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Append_CRC8_Check_Sum(unsigned char*, unsigned)
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Append_CRC8_Check_Sum(unsigned char*, unsigned)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__cxx_global_var_init.2
 </UL>
 
 <P><STRONG><a name="[129]"></a>Capacitor::CapVolLimit()</STRONG> (Thumb, 68 bytes, Stack size 0 bytes, capacitor.o(.text._ZN9Capacitor11CapVolLimitEv))
-<BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
+<BR><BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
 </UL>
 
 <P><STRONG><a name="[fb]"></a>Capacitor::PowerDesUpdate(float)</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, capacitor.o(.text._ZN9Capacitor14PowerDesUpdateEf))
@@ -2632,7 +2637,7 @@ Global Symbols
 <LI><a href="#[181]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safeAtan2(float, float)
+<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safeAtan2(float, float)
 </UL>
 
 <P><STRONG><a name="[116]"></a>__hardfp_cosf</STRONG> (Thumb, 280 bytes, Stack size 8 bytes, cosf.o(i.__hardfp_cosf))
@@ -2643,15 +2648,13 @@ Global Symbols
 <LI><a href="#[186]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
-<BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
 <P><STRONG><a name="[11c]"></a>__hardfp_log</STRONG> (Thumb, 872 bytes, Stack size 88 bytes, log.o(i.__hardfp_log))
 <BR><BR>[Stack]<UL><LI>Max Depth = 144<LI>Call Chain = __hardfp_log &rArr; __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
@@ -2662,6 +2665,8 @@ Global Symbols
 <LI><a href="#[18c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdcmpeq
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Power_Control()
 </UL>
@@ -2669,9 +2674,7 @@ Global Symbols
 <P><STRONG><a name="[11f]"></a>__hardfp_pow</STRONG> (Thumb, 3072 bytes, Stack size 192 bytes, pow.o(i.__hardfp_pow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 264<LI>Call Chain = __hardfp_pow &rArr; sqrt &rArr; _dsqrt &rArr; __fpl_dnaninf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<BR>[Calls]<UL><LI><a href="#[18b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
 <LI><a href="#[18f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrt
@@ -2688,24 +2691,27 @@ Global Symbols
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2d
 <LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dneg
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
+<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Power_Control()
 </UL>
 
-<P><STRONG><a name="[110]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf.o(i.__hardfp_sqrtf))
+<P><STRONG><a name="[fd]"></a>__hardfp_sqrtf</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, sqrtf.o(i.__hardfp_sqrtf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __hardfp_sqrtf &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
 </UL>
 <BR>[Called By]<UL><LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adrc_TD::CalAdrcTD(float)
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotStatesUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
 <P><STRONG><a name="[190]"></a>__kernel_poly</STRONG> (Thumb, 248 bytes, Stack size 24 bytes, poly.o(i.__kernel_poly))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = __kernel_poly &rArr; __aeabi_dmul
 </UL>
-<BR>[Calls]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
-<LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<BR>[Calls]<UL><LI><a href="#[18e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_pow
 <LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_log
@@ -2817,7 +2823,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_d2f
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Power_Control()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
 <P><STRONG><a name="[19a]"></a>_d2f</STRONG> (Thumb, 98 bytes, Stack size 32 bytes, d2f.o(x$fpl$d2f), UNUSED)
@@ -2917,7 +2923,7 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Power_Control()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__kernel_poly
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_underflow
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_dbl_overflow
@@ -2933,22 +2939,22 @@ Global Symbols
 <P><STRONG><a name="[19c]"></a>__fpl_dnaninf</STRONG> (Thumb, 156 bytes, Stack size 16 bytes, dnaninf.o(x$fpl$dnaninf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __fpl_dnaninf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
-<LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
-<LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
+<BR>[Called By]<UL><LI><a href="#[1ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsub
 <LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 <LI><a href="#[19a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_d2f
 <LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dsqrt
 <LI><a href="#[1a6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmple
 <LI><a href="#[1a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmpge
 <LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmpeq
+<LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
+<LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
 </UL>
 
 <P><STRONG><a name="[19f]"></a>__fpl_dretinf</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, dretinf.o(x$fpl$dretinf), UNUSED)
-<BR><BR>[Called By]<UL><LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
+<BR><BR>[Called By]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
+<LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_f2d
 <LI><a href="#[1a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dmul
 <LI><a href="#[1a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_ddiv
-<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dadd
 </UL>
 
 <P><STRONG><a name="[196]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, drleqf.o(x$fpl$drleqf))
@@ -2999,7 +3005,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Capacitor::PowerDesUpdate(float)
 <LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Power_Control()
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RobotStatesUpdate()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
 <P><STRONG><a name="[1ad]"></a>_f2d</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, f2d.o(x$fpl$f2d), UNUSED)
@@ -3017,11 +3023,11 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[1a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_dcmpeq
 </UL>
 
-<P><STRONG><a name="[111]"></a>__aeabi_dcmpgt</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp))
+<P><STRONG><a name="[112]"></a>__aeabi_dcmpgt</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_dcmpgt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Power_Control()
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
+<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OmnidirectionalChassisTargetUpdate()
 </UL>
 
 <P><STRONG><a name="[1b1]"></a>_dgr</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, dcmp.o(x$fpl$fcmp), UNUSED)
@@ -3394,7 +3400,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_GLOBAL__sub_I_user_global.cpp
 </UL>
 
-<P><STRONG><a name="[102]"></a>_ZL11MatchRSDatatPht</STRONG> (Thumb, 560 bytes, Stack size 8 bytes, uart_protocol.o(.text._ZL11MatchRSDatatPht))
+<P><STRONG><a name="[104]"></a>_ZL11MatchRSDatatPht</STRONG> (Thumb, 560 bytes, Stack size 8 bytes, uart_protocol.o(.text._ZL11MatchRSDatatPht))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _ZL11MatchRSDatatPht
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy

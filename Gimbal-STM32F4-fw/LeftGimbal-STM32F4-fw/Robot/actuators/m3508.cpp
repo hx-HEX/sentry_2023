@@ -25,7 +25,7 @@ void M3508::SpeedUpdate(float speed)
 void M3508::AngleUpdate(uint32_t value)
 {
     m_encoder->EncodeValueUpdate(value);
-    m_angle_current = (m_encoder->m_sum_value - m_encoder->m_zero_value) / 
+    m_angle_current = m_encoder->m_sum_value/ 
                   m_encoder->m_resolution * 2 * PI / m_reduction_ratio;
 }
 

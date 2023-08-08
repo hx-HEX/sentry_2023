@@ -199,7 +199,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -207,7 +207,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -312,8 +312,8 @@ I (D:\STM32\ARM\ARMCLANG\include\stdarg.h)(0x5DDFFD72)
 I (..\UserApp\protocol\verify.h)(0x64A03E18)
 I (..\Bsp\communication\usart_interface.h)(0x64AA6A2E)
 F (..\Bsp\referee\referee.h)(0x64BBBA95)()
-F (..\Bsp\communication\can_interface.cpp)(0x64A76ED4)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/can_interface.o -MD)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+F (..\Bsp\communication\can_interface.cpp)(0x64CDC81C)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/can_interface.o -MD)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Drivers\CMSIS\Device\stm32f4xx.h)(0x649D2A64)
 I (..\Drivers\CMSIS\Core\core_cm4.h)(0x60D3E8E2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\stdint.h)(0x5E0BB2B8)
@@ -351,12 +351,12 @@ I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_can.h)(0x649D2A60)
 I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_dac.h)(0x649D2A60)
 I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_dcmi.h)(0x5F58438C)
 I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_fsmc.h)(0x5F58438C)
-F (..\Bsp\communication\can_interface.h)(0x64A76EE8)()
+F (..\Bsp\communication\can_interface.h)(0x64CDC811)()
 F (..\Bsp\capacitor\capacitor.cpp)(0x64AA989D)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/capacitor.o -MD)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 F (..\Bsp\capacitor\capacitor.h)(0x64A26E82)()
-F (..\Bsp\encoder\encoder.cpp)(0x64A26CDD)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/encoder.o -MD)
+F (..\Bsp\encoder\encoder.cpp)(0x64CE47AF)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/encoder.o -MD)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 F (..\Bsp\encoder\encoder.h)(0x64A26CD0)()
 F (..\Core\Src\bsp_init.c)(0x64B8FC0F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/bsp_init.o -MD)
@@ -2410,7 +2410,7 @@ I (..\Middlewares\FreeRTOS\include\mpu_wrappers.h)(0x649D2A60)
 I (..\Middlewares\FreeRTOS\include\task.h)(0x649D2A60)
 I (..\Middlewares\FreeRTOS\include\list.h)(0x649D2A60)
 F (..\Middlewares\FreeRTOS\include\FreeRTOSConfig.h)(0x649D2A60)()
-F (..\Robot\actuators\gm6020.cpp)(0x64A284A1)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/gm6020.o -MD)
+F (..\Robot\actuators\gm6020.cpp)(0x64CE47BD)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/gm6020.o -MD)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -2454,7 +2454,7 @@ I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_dcmi.h)(0x5F58438C)
 I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_fsmc.h)(0x5F58438C)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\algorithms\common_math.h)(0x64A2D2E0)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\math.h)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x5E0BB2B8)
@@ -2468,7 +2468,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\__nullptr)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
 F (..\Robot\actuators\gm6020.h)(0x64A2DDAC)()
-F (..\Robot\actuators\m2006.cpp)(0x64A284B2)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/m2006.o -MD)
+F (..\Robot\actuators\m2006.cpp)(0x64CE47C7)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/m2006.o -MD)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -2512,7 +2512,7 @@ I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_dcmi.h)(0x5F58438C)
 I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_fsmc.h)(0x5F58438C)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\algorithms\common_math.h)(0x64A2D2E0)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\math.h)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x5E0BB2B8)
@@ -2526,7 +2526,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\__nullptr)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
 F (..\Robot\actuators\m2006.h)(0x64A2DDA8)()
-F (..\Robot\actuators\m3508.cpp)(0x64BC5CE8)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/m3508.o -MD)
+F (..\Robot\actuators\m3508.cpp)(0x64CECC4E)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/m3508.o -MD)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -2570,7 +2570,7 @@ I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_dcmi.h)(0x5F58438C)
 I (..\Drivers\STM32F4_LIB\inc\stm32f4xx_fsmc.h)(0x5F58438C)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\algorithms\common_math.h)(0x64A2D2E0)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\math.h)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x5E0BB2B8)
@@ -2682,7 +2682,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
 I (..\Robot\algorithms\common_math.h)(0x64A2D2E0)
 F (..\Robot\algorithms\smc.h)(0x64A27041)()
-F (..\Robot\instances\sentry_robot.cpp)(0x64CAFE95)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/sentry_robot.o -MD)
+F (..\Robot\instances\sentry_robot.cpp)(0x64CECCFF)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/sentry_robot.o -MD)
 I (..\UserApp\user_global.h)(0x64CACB04)
 I (..\UserApp\system_monitor.h)(0x64BCFF3D)
 I (..\Drivers\CMSIS\Device\stm32f4xx.h)(0x649D2A64)
@@ -2754,7 +2754,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -2762,7 +2762,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -2774,7 +2774,7 @@ I (..\Core\Inc\usart.h)(0x649AE6AD)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\stdio.h)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\stdio.h)(0x5DDFFD72)
 I (D:\STM32\ARM\ARMCLANG\include\stdarg.h)(0x5DDFFD72)
-F (..\Robot\instances\sentry_robot.h)(0x64CBD521)()
+F (..\Robot\instances\sentry_robot.h)(0x64CEB807)()
 F (..\startup\startup_stm32f40_41xxx.s)(0x64A90BE5)(--target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -masm=auto -c-gdwarf-3-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 530" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F407xx SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f40_41xxx.o)
 F (..\UserApp\user_main.cpp)(0x64A420F7)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/user_main.o -MD)
 I (..\UserApp\user_main.h)(0x649C1966)
@@ -2851,7 +2851,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -2859,7 +2859,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -2948,7 +2948,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -2956,7 +2956,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -3043,7 +3043,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -3051,7 +3051,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -3065,7 +3065,7 @@ I (D:\STM32\ARM\ARMCLANG\include\stdio.h)(0x5DDFFD72)
 I (D:\STM32\ARM\ARMCLANG\include\stdarg.h)(0x5DDFFD72)
 I (..\UserApp\protocol\can_protocol.h)(0x64A2D11B)
 F (..\UserApp\user_callback.h)(0x64A83EE2)()
-F (..\UserApp\user_global.cpp)(0x64CC13EA)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/user_global.o -MD)
+F (..\UserApp\user_global.cpp)(0x64CEC9A1)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/user_global.o -MD)
 I (..\UserApp\user_global.h)(0x64CACB04)
 I (..\UserApp\system_monitor.h)(0x64BCFF3D)
 I (..\Drivers\CMSIS\Device\stm32f4xx.h)(0x649D2A64)
@@ -3137,7 +3137,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -3145,7 +3145,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -3230,7 +3230,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)
@@ -3238,7 +3238,7 @@ I (..\Core\Inc\can.h)(0x644AB6DA)
 I (..\Bsp\encoder\encoder.h)(0x64A26CD0)
 I (..\Robot\algorithms\kalman.h)(0x64A2701D)
 I (..\Robot\actuators\gm6020.h)(0x64A2DDAC)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Robot\actuators\m2006.h)(0x64A2DDA8)
 I (..\UserApp\RoboMaster.h)(0x64A28630)
 I (..\Bsp\capacitor\capacitor.h)(0x64A26E82)
@@ -3256,7 +3256,7 @@ I (..\UserApp\protocol\verify.h)(0x64A03E18)
 F (..\UserApp\protocol\verify.h)(0x64A03E18)()
 F (..\UserApp\protocol\can_protocol.cpp)(0x64CAEB53)(-xc++ -std=c++11 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-3 -O1 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Bsp -I ../Core/Inc -I ../Drivers/STM32F4_LIB/inc -I ../Drivers/CMSIS/Core -I ../UserApp -I ../Drivers/CMSIS/Device -I ../Middlewares/FreeRTOS/include -I ../UserApp/freertos -I ../Bsp/gpio -I ../Bsp/communication -I ../Bsp/gimbal -I ../Bsp/aim_assist -I ../Bsp/capacitor -I ../Bsp/dij_rc -I ../Bsp/encoder -I ../Bsp/navigation -I ../Bsp/referee -I ../Bsp/vofa -I ../UserApp/protocol -I ../Robot/actuators -I ../Robot/algorithms -I ../Robot/instances -I ../Middlewares/FreeRTOS/portable/GCC/ARM_CM4F-I./RTE/_Sentry-Core-ID:/STM32/ARM/PACK/ARM/CMSIS/5.8.0/CMSIS/Core/Include-ID:/STM32/ARM/PACK/Keil/STM32F4xx_DFP/2.16.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include-D__UVISION_VERSION="530" -D_RTE_ -DSTM32F407xx -D_RTE_ -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER -DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK-o ./objects/can_protocol.o -MD)
 I (..\UserApp\protocol\can_protocol.h)(0x64A2D11B)
-I (..\Bsp\communication\can_interface.h)(0x64A76EE8)
+I (..\Bsp\communication\can_interface.h)(0x64CDC811)
 I (..\Drivers\CMSIS\Device\stm32f4xx.h)(0x649D2A64)
 I (..\Drivers\CMSIS\Core\core_cm4.h)(0x60D3E8E2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\stdint.h)(0x5E0BB2B8)
@@ -3328,7 +3328,7 @@ I (D:\STM32\ARM\ARMCLANG\include\libcxx\cstddef)(0x5E0BB2B6)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\version)(0x5E3336D2)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\limits)(0x5E0BB2B8)
 I (D:\STM32\ARM\ARMCLANG\include\libcxx\__undef_macros)(0x5E0BB2B8)
-I (..\Robot\instances\sentry_robot.h)(0x64CBD521)
+I (..\Robot\instances\sentry_robot.h)(0x64CEB807)
 I (..\Robot\actuators\m3508.h)(0x64CAC694)
 I (..\Robot\algorithms\pid.h)(0x64A27037)
 I (..\Robot\algorithms\adrc.h)(0x64A26FF3)

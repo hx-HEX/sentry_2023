@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry-Core.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry-Core.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Thu Aug  3 09:48:21 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sat Aug  5 20:58:50 2023
 <BR><P>
 <H3>Maximum Stack Usage =        640 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1566,7 +1566,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[ed]"></a>RobotControlExecute()</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, user_global.o(.text._Z19RobotControlExecutev))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = RobotControlExecute() &rArr; SentryRobot::SendControlCommand() &rArr; CANContext::CanSendMessage() &rArr; CAN_Transmit
+<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = RobotControlExecute() &rArr; SentryRobot::SendControlCommand() &rArr; CANContext::CanSendMessage() &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteShootAlgorithm()
 <LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::SendControlCommand()
@@ -1741,8 +1741,10 @@ Global Symbols
 <LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GimbalTargetsUpdate()
 </UL>
 
-<P><STRONG><a name="[13b]"></a>AbsEncoder::EncodeValueUpdate(unsigned)</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, encoder.o(.text._ZN10AbsEncoder17EncodeValueUpdateEj))
-<BR><BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M2006::EncoderAngleUpdate(unsigned)
+<P><STRONG><a name="[13b]"></a>AbsEncoder::EncodeValueUpdate(unsigned)</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, encoder.o(.text._ZN10AbsEncoder17EncodeValueUpdateEj))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = AbsEncoder::EncodeValueUpdate(unsigned)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;M2006::EncoderAngleUpdate(unsigned)
 </UL>
 
 <P><STRONG><a name="[132]"></a>AbsEncoder::AbsEncoder__sub_object(unsigned, unsigned)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sentry_robot.o(.text._ZN10AbsEncoderC2Ejj))
@@ -1875,8 +1877,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ControlModeUpdate()
 </UL>
 
-<P><STRONG><a name="[119]"></a>SentryRobot::SendControlCommand()</STRONG> (Thumb, 294 bytes, Stack size 32 bytes, sentry_robot.o(.text._ZN11SentryRobot18SendControlCommandEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = SentryRobot::SendControlCommand() &rArr; CANContext::CanSendMessage() &rArr; CAN_Transmit
+<P><STRONG><a name="[119]"></a>SentryRobot::SendControlCommand()</STRONG> (Thumb, 370 bytes, Stack size 24 bytes, sentry_robot.o(.text._ZN11SentryRobot18SendControlCommandEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = SentryRobot::SendControlCommand() &rArr; CANContext::CanSendMessage() &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CANContext::CanSendMessage()
 </UL>
@@ -2059,7 +2061,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[d7]"></a>M2006::EncoderAngleUpdate(unsigned)</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, m2006.o(.text._ZN5M200618EncoderAngleUpdateEj))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = M2006::EncoderAngleUpdate(unsigned) &rArr; Kalman::UpdateFilter(float)
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = M2006::EncoderAngleUpdate(unsigned) &rArr; AbsEncoder::EncodeValueUpdate(unsigned)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsEncoder::EncodeValueUpdate(unsigned)
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Kalman::GetFilterOutput()

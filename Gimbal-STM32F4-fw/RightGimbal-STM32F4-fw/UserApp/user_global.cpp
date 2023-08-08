@@ -85,9 +85,9 @@ void VisualData(void)
     G_vofa.m_data_send_frame.m_data[2] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_target;
     G_vofa.m_data_send_frame.m_data[3] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current;
     G_vofa.m_data_send_frame.m_data[4] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current_encoder;
-    G_vofa.m_data_send_frame.m_data[5] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_sum_value;
+    G_vofa.m_data_send_frame.m_data[5] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_raw_value;
     G_vofa.m_data_send_frame.m_data[6] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_encoder->m_zero_value;
-    G_vofa.m_data_send_frame.m_data[7] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_sum_value;
+    G_vofa.m_data_send_frame.m_data[7] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_raw_value;
     G_vofa.m_data_send_frame.m_data[8] = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_encoder->m_zero_value;
 }
 
@@ -268,33 +268,29 @@ void GimbalTargetsUpdate(void)
                 if(fpclassify(G_aim_assist.m_data_receive_frame.m_data_f[1])== FP_NORMAL)
                     G_sentry.yaw_angle_des = G_aim_assist.m_data_receive_frame.m_data_f[1];
 
-                if(fabs(G_aim_assist.m_data_receive_frame.m_data_f[1] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current) < 5.0f)
+                if(fabs(G_aim_assist.m_data_receive_frame.m_data_f[1] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current) < 10.0f)
                 {
-                    if((fabs(G_aim_assist.m_data_receive_frame.m_data_f[1] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current) < 2.0f) || G_sentry.change_yaw_flag)
+                    if((fabs(G_aim_assist.m_data_receive_frame.m_data_f[1] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current) < 5.0f) || G_sentry.change_yaw_flag)
                     {
-                        G_sentry.change_yaw_flag = 1;
-                        G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_pid->m_kp = 35;   
-                        G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_td->m_k = 1;
+                        G_sentry.change_yaw_flag = 1; 
+                        G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_td->m_k = 0.5;
                     }               
                 }
                 else{
                     G_sentry.change_yaw_flag = 0;
-                    G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_pid->m_kp = 15; 
                     G_sentry. gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_td->m_k = 0;
                 }
 
-                if(fabs(G_aim_assist.m_data_receive_frame.m_data_f[0] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current) < 3.0f)
+                if(fabs(G_aim_assist.m_data_receive_frame.m_data_f[0] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current) < 5.0f)
                 {
-                    if((fabs(G_aim_assist.m_data_receive_frame.m_data_f[0] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current) < 1.5f) || G_sentry.change_pitch_flag)
+                    if((fabs(G_aim_assist.m_data_receive_frame.m_data_f[0] - G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current) < 3.0f) || G_sentry.change_pitch_flag)
                     {
                         G_sentry.change_pitch_flag = 1;
-                        G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_pid->m_kp = 40;  
                         G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_td->m_k = 0.8;
                     }
                 }
                 else{
                         G_sentry.change_pitch_flag = 0;
-                        G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_pid->m_kp = 20;  
                         G_sentry. gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_td->m_k = 0;
                 }
                 

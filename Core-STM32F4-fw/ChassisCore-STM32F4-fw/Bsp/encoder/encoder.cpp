@@ -13,23 +13,23 @@
 **/
 void AbsEncoder::EncodeValueUpdate(unsigned int value)
 {
-	if (!m_init_flag) {
-		m_raw_value = value;
-		m_pre_raw_value = value;
-		m_sum_value = (float)value;
+	m_raw_value = value;
+	if (!m_init_flag)
+	{
+		m_sum_value = 0;
 		m_init_flag = true;
-	} else {
-		m_pre_raw_value = m_raw_value;
-		m_raw_value = value;
-		m_value_diff = m_raw_value - m_pre_raw_value;
-		if(m_value_diff < -m_resolution/2)
-		{
-			m_value_diff += m_resolution;
-		}
-		else if(m_value_diff > m_resolution/2)
-		{
-			m_value_diff -= m_resolution;
-		}
-		m_sum_value += m_value_diff;
+		m_value_diff = m_raw_value - m_zero_value;
 	}
+	else
+		m_value_diff = m_raw_value - m_pre_raw_value;
+	if(m_value_diff < -m_resolution/2)
+	{
+		m_value_diff += m_resolution;
+	}
+	else if(m_value_diff > m_resolution/2)
+	{
+		m_value_diff -= m_resolution;
+	}
+	m_sum_value += m_value_diff;
+	m_pre_raw_value = m_raw_value;
 }

@@ -18,6 +18,6 @@ void CANContext::CAN_Init(CAN_TypeDef * hCANx,uint8_t ide,uint8_t rtr, uint8_t d
 函数名： void CanSendMessage(void)
 功  能：can发送
 ----------------------------------------------------------------------------------------*/
-void CANContext::CanSendMessage(void){
-    CAN_Transmit(CANx,&CANx_TxMsg);
+uint8_t CANContext::CanSendMessage(void){
+    return CAN_Transmit(CANx,&CANx_TxMsg);
 }

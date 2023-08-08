@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry-Gimbal.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry-Gimbal.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Fri Aug  4 05:16:30 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Tue Aug  8 21:58:13 2023
 <BR><P>
 <H3>Maximum Stack Usage =        264 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -141,8 +141,8 @@ Function Pointers
 Global Symbols
 </H3>
 <P><STRONG><a name="[5d]"></a>__main</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, __main.o(!!!main))
-<BR><BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
-<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<BR><BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f40_41xxx.o(.text)
 </UL>
@@ -639,10 +639,10 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
-<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
+<BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_atan2f
 <LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_asinf
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__hardfp_sqrtf
 </UL>
 
 <P><STRONG><a name="[7f]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
@@ -1396,7 +1396,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GimbalTargetsUpdate()
 </UL>
 
-<P><STRONG><a name="[eb]"></a>VisualData()</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, user_global.o(.text._Z10VisualDatav))
+<P><STRONG><a name="[eb]"></a>VisualData()</STRONG> (Thumb, 76 bytes, Stack size 0 bytes, user_global.o(.text._Z10VisualDatav))
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DataVisualTask(void*)
 </UL>
 
@@ -1505,7 +1505,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UserMain
 </UL>
 
-<P><STRONG><a name="[f5]"></a>RobotStatesUpdate()</STRONG> (Thumb, 336 bytes, Stack size 16 bytes, user_global.o(.text._Z17RobotStatesUpdatev))
+<P><STRONG><a name="[f5]"></a>RobotStatesUpdate()</STRONG> (Thumb, 340 bytes, Stack size 16 bytes, user_global.o(.text._Z17RobotStatesUpdatev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 184<LI>Call Chain = RobotStatesUpdate() &rArr; BMI088::UpdataAngleData() &rArr; Mahony::AngleUpdate(const float*, const float*) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BMI088::UpdataAngleData()
@@ -1642,8 +1642,10 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mahony::AngleUpdate(const float*, const float*)
 </UL>
 
-<P><STRONG><a name="[141]"></a>AbsEncoder::EncodeValueUpdate(unsigned)</STRONG> (Thumb, 94 bytes, Stack size 0 bytes, encoder.o(.text._ZN10AbsEncoder17EncodeValueUpdateEj))
-<BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GM6020::EncoderAngleUpdate(unsigned)
+<P><STRONG><a name="[141]"></a>AbsEncoder::EncodeValueUpdate(unsigned)</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, encoder.o(.text._ZN10AbsEncoder17EncodeValueUpdateEj))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = AbsEncoder::EncodeValueUpdate(unsigned)
+</UL>
+<BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GM6020::EncoderAngleUpdate(unsigned)
 </UL>
 
 <P><STRONG><a name="[11d]"></a>AbsEncoder::AbsEncoder__sub_object(unsigned, unsigned)</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, sentry_robot.o(.text._ZN10AbsEncoderC2Ejj))
@@ -1697,7 +1699,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[cb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::Init()
 </UL>
 
-<P><STRONG><a name="[10d]"></a>SentryRobot::SendControlCommand()</STRONG> (Thumb, 328 bytes, Stack size 32 bytes, sentry_robot.o(.text._ZN11SentryRobot18SendControlCommandEv))
+<P><STRONG><a name="[10d]"></a>SentryRobot::SendControlCommand()</STRONG> (Thumb, 426 bytes, Stack size 32 bytes, sentry_robot.o(.text._ZN11SentryRobot18SendControlCommandEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = SentryRobot::SendControlCommand() &rArr; CANContext::CanSendMessage() &rArr; CAN_Transmit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CANContext::CanSendMessage()
@@ -2053,8 +2055,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SentryRobot::ExecuteGimbalAlgorithm()
 </UL>
 
-<P><STRONG><a name="[dd]"></a>GM6020::EncoderAngleUpdate(unsigned)</STRONG> (Thumb, 84 bytes, Stack size 8 bytes, gm6020.o(.text._ZN6GM602018EncoderAngleUpdateEj))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = GM6020::EncoderAngleUpdate(unsigned) &rArr; Kalman::UpdateFilter(float)
+<P><STRONG><a name="[dd]"></a>GM6020::EncoderAngleUpdate(unsigned)</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, gm6020.o(.text._ZN6GM602018EncoderAngleUpdateEj))
+<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = GM6020::EncoderAngleUpdate(unsigned) &rArr; AbsEncoder::EncodeValueUpdate(unsigned)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;AbsEncoder::EncodeValueUpdate(unsigned)
 <LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Kalman::UpdateFilter(float)
@@ -2189,7 +2191,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SendAimAssistData()
 </UL>
 
-<P><STRONG><a name="[14d]"></a>AimAssist::AimAssist__sub_object()</STRONG> (Thumb, 88 bytes, Stack size 16 bytes, user_global.o(.text._ZN9AimAssistC2Ev))
+<P><STRONG><a name="[14d]"></a>AimAssist::AimAssist__sub_object()</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, user_global.o(.text._ZN9AimAssistC2Ev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = AimAssist::AimAssist__sub_object() &rArr; operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;operator new(unsigned)
@@ -2765,12 +2767,12 @@ Global Symbols
 <P><STRONG><a name="[14a]"></a>__hardfp_asinf</STRONG> (Thumb, 258 bytes, Stack size 16 bytes, asinf.o(i.__hardfp_asinf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_asinf &rArr; sqrtf &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
-<LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<BR>[Calls]<UL><LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_invalid
 <LI><a href="#[193]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sqrtf
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mahony::AngleUpdate(const float*, const float*)
 </UL>
@@ -2778,10 +2780,10 @@ Global Symbols
 <P><STRONG><a name="[14b]"></a>__hardfp_atan2f</STRONG> (Thumb, 594 bytes, Stack size 32 bytes, atan2f.o(i.__hardfp_atan2f))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = __hardfp_atan2f &rArr; __set_errno
 </UL>
-<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
-<LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
+<BR>[Calls]<UL><LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_underflow
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__mathlib_flt_infnan2
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__set_errno
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_fpclassifyf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Mahony::AngleUpdate(const float*, const float*)
 </UL>

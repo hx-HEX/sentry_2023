@@ -99,8 +99,8 @@ void VisualizeData(void)
  */
 void SendGimbalData(void)
 {
-    G_gimbal.m_data_send_frame.m_fdata[0] = G_sentry.m_yaw_angle;
-    // G_gimbal.m_data_send_frame.m_fdata[1] = 0;//速度可通过底盘反馈合成
+    G_gimbal.m_data_send_frame.m_fdata[0] = G_sentry.m_speed_angle;
+    G_gimbal.m_data_send_frame.m_fdata[1] = G_sentry.chassis_speed;//速度可通过底盘反馈合成
     uint32_t gimbal_data_num = sizeof(G_gimbal.m_data_send_frame);
 
     if(G_gimbal.gimbal_send_buff_cnt + gimbal_data_num < GIMBAL_SEND_BUFF_SIZE){
@@ -325,6 +325,75 @@ void RobotStatesUpdate(void)
 
     if(G_sentry.yawgimbal_mode == SentryRobot::YAWGIMBAL_CALIBRATE)
         YawGimbalCalibrate();
+    
+    //发给导航的速度
+    float vx_fb = 0;
+    float vy_fb = 0;
+
+    vx_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_FLL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(135.0f / RADIAN2DEGREE_VALUE);
+    vx_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_FRL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(45.0f / RADIAN2DEGREE_VALUE);
+    vx_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_BRL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(45.0f / RADIAN2DEGREE_VALUE);
+    vx_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_BLL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(135.0f / RADIAN2DEGREE_VALUE);
+
+    vy_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_FLL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(45.0f / RADIAN2DEGREE_VALUE);
+    vy_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_FRL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(45.0f / RADIAN2DEGREE_VALUE);
+    vy_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_BRL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(135.0f / RADIAN2DEGREE_VALUE);
+    vy_fb += G_sentry.chassis_line_motor[SentryRobot::CHASSIS_BLL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS*cos(135.0f / RADIAN2DEGREE_VALUE);
+
+    vx_fb /= 4.0;
+    vy_fb /= 4.0;
+
+    G_sentry.chassis_speed = sqrt(vx_fb*vx_fb+vy_fb*vy_fb);
+
+    //解算速度角度
+    float chassis_vx = 0;
+    float chassis_vy = 0;
+    float chassis_theta = 0;
+
+    chassis_vx = -G_sentry.chassis_line_motor[SentryRobot::CHASSIS_FLL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS
+                 +G_sentry.chassis_line_motor[SentryRobot::CHASSIS_BRL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS;
+    chassis_vy = G_sentry.chassis_line_motor[SentryRobot::CHASSIS_FRL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS
+                 -G_sentry.chassis_line_motor[SentryRobot::CHASSIS_BLL_MOTOR]->
+                            m_speed_current_encoder_filter / 
+                            RADIAN2DEGREE_VALUE * 
+                            CHASSIS_WHEEL_RADIUS;
+    chassis_theta = safeAtan2(chassis_vy,chassis_vx)* RADIAN2DEGREE_VALUE;
+
+    G_sentry.m_speed_angle = G_sentry.m_yaw_angle - (45.0f - chassis_theta);
+
 }
 
 
@@ -354,10 +423,14 @@ void YawGimbalCalibrate(void)
         if(!first_flag)
         {
             G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_encoder->m_zero_value 
-            = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_encoder->m_sum_value;
+            = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_encoder->m_raw_value;
+
+            G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_MOTOR]->m_encoder->m_init_flag = false;
 
             G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_encoder->m_zero_value 
-            = G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_encoder->m_sum_value;
+            = G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_encoder->m_raw_value;
+
+            G_sentry.yaw_gimbal_motor[SentryRobot::RIGHT_MOTOR]->m_encoder->m_init_flag = false;
 
             first_flag = 1;
         }
@@ -481,7 +554,7 @@ void OmnidirectionalChassisTargetUpdate(void)
 
             while(detal_head_back > 180.0f) 
                 detal_head_back -= 360.0f;
-                
+
             if(fabs(detal_head_front) < 50.0f && head_front_flag)
             {
                 detal_theta = des_theta  - (abs_chassis_angle + CHASSIS_HEAD_FRONT);
@@ -536,7 +609,7 @@ void OmnidirectionalChassisTargetUpdate(void)
                 detal_theta += 360.0f;
             G_sentry.m_chassis_w = -0.01*detal_theta;
         }
-        G_sentry.m_chassis_w = Clip(G_sentry.m_chassis_w,-0.2,0.2);
+        G_sentry.m_chassis_w = Clip(G_sentry.m_chassis_w,-0.5,0.5);
 
         frl_speed_des = -(G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
                          + G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;

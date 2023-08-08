@@ -46,7 +46,7 @@ void SentryRobot::InitAllActuators(void)
     shoot_motor[RIGHT_FRIC_MOTOR]->m_encoder = new AbsEncoder(RIGHT_FRIC_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);  
 
     gimbal_motor[GIMBAL_PITCH_MOTOR] = new GM6020(CAN1, GIMBAL_PITCH_MOTOR_ID, GIMBAL_MOTOR_REDUCTION_RATIO);
-    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_td = new Adrc_TD((float)2000, 0.01, 0.01,0.8);
+    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_td = new Adrc_TD((float)20000, 0.01, 0.01,0.8);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_pid = new Pid(50, 0.2, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_speed_pid = new Pid(150, 0.00, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_encoder = new AbsEncoder(GIMBAL_PITCH_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
@@ -54,7 +54,7 @@ void SentryRobot::InitAllActuators(void)
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);
 
     gimbal_motor[GIMBAL_YAW_MOTOR] = new GM6020(CAN1, GIMBAL_YAW_MOTOR_ID, GIMBAL_MOTOR_REDUCTION_RATIO);
-    gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_td = new Adrc_TD((float)20000, 0.01, 0.01,0.5);
+    gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_td = new Adrc_TD((float)20000, 0.01, 0.01,0.8);
     gimbal_motor[GIMBAL_YAW_MOTOR]->m_angle_pid = new Pid(50, 0.08, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_YAW_MOTOR]->m_speed_pid = new Pid(150, 0.01, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_YAW_MOTOR]->m_encoder = new AbsEncoder(GIMBAL_YAW_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
@@ -78,7 +78,7 @@ void SentryRobot::InitAllSensors(void)
     } while (imu_flag != 0);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_mahony_filter = new Mahony(0.001f, 0.5f, 0.001f);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_x = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
-    gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_z = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
+    gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_z = new Kalman(1, 0.001f, 0.0001f,0.08f, 0.01f);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_y = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
 }
 
@@ -205,7 +205,8 @@ void SentryRobot::ExecuteGimbalAlgorithm(void)
 */
 void SentryRobot::SendControlCommand(void)
 {
-    static uint16_t trans_cnt = 0;//待上电后电平稳定再执行发送函数
+    uint8_t transmint_1;
+    uint8_t transmint_2;
 
     // CAN1 ID 0x200    CAN2 ID 0x200
     can1_context.CANx_TxMsg.StdId = 0x200;
@@ -229,10 +230,22 @@ void SentryRobot::SendControlCommand(void)
         }
     }
 
-    if(trans_cnt > 2000){
-        can1_context.CanSendMessage();
-        can2_context.CanSendMessage();
+    transmint_1 = can1_context.CanSendMessage();
+    transmint_2 = can2_context.CanSendMessage();
+
+    if(transmint_1 == CAN_TxStatus_NoMailBox)
+    {   
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ2;
     }
+    if(transmint_2 == CAN_TxStatus_NoMailBox)
+    {   
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ2;
+    }
+
 
 
     // CAN1 ID 0x1ff    CAN2 ID 0x1ff
@@ -257,11 +270,19 @@ void SentryRobot::SendControlCommand(void)
         }
     }
 
-    if(trans_cnt > 2000){
-        can1_context.CanSendMessage();
-        can2_context.CanSendMessage();
-    }
+    transmint_1 = can1_context.CanSendMessage();
+    transmint_2 = can2_context.CanSendMessage();
 
-    trans_cnt++;
-    if(trans_cnt > 2500) trans_cnt=2500;
+    if(transmint_1 == CAN_TxStatus_NoMailBox)
+    {   
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can1_context.CANx->TSR|= CAN_TSR_ABRQ2;
+    }
+    if(transmint_2 == CAN_TxStatus_NoMailBox)
+    {   
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ0;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ1;
+        can2_context.CANx->TSR|= CAN_TSR_ABRQ2;
+    }
 }

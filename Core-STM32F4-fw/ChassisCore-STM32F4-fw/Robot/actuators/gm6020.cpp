@@ -77,7 +77,7 @@ void GM6020::EncoderSpeedUpdate(float speed)
 void GM6020::EncoderAngleUpdate(uint32_t value)
 {
     m_encoder->EncodeValueUpdate(value);
-    m_angle_current_encoder = (m_encoder->m_sum_value - m_encoder->m_zero_value) / 
+    m_angle_current_encoder = m_encoder->m_sum_value / 
     m_encoder->m_resolution * 360.0f / m_reduction_ratio;
     m_kalman_filter_angle->UpdateFilter(m_angle_current_encoder);
     m_angle_current_encoder_filter = m_kalman_filter_angle->GetFilterOutput();

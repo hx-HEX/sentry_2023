@@ -2,7 +2,7 @@
 
 #include "usart_interface.h"
 
-#define AIM_ASSIST_DATA_SEND_FLOAT_NUM          ((uint8_t)4)//pitch_fb,yaw_fb,bullet_speed,balance
+#define AIM_ASSIST_DATA_SEND_FLOAT_NUM          ((uint8_t)10)//pitch_fb,yaw_fb,bullet_speed,balance
 #define AIM_ASSIST_DATA_RECEIVE_FLOAT_NUM       ((uint8_t)9)//pitch_des,yaw_des,supply_bullet_flag,change_direction_flag,其它五个数
 #define AIM_ASSIST_DATA_SEND_SIZE               ((uint8_t)6 + 4 * AIM_ASSIST_DATA_SEND_FLOAT_NUM)
 #define AIM_ASSIST_DATA_RECEIVE_SIZE            ((uint8_t)6 + 4 * AIM_ASSIST_DATA_RECEIVE_FLOAT_NUM)
