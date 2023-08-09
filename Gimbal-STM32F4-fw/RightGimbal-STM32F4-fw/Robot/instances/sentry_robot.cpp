@@ -78,7 +78,7 @@ void SentryRobot::InitAllSensors(void)
     } while (imu_flag != 0);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_mahony_filter = new Mahony(0.001f, 0.5f, 0.001f);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_x = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
-    gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_z = new Kalman(1, 0.001f, 0.0001f,0.08f, 0.01f);
+    gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_z = new Kalman(1, 0.001f, 0.0001f,0.075f, 0.01f);
     gimbal_imu[GIMBAL_FIRST_IMU]->m_kalman_filter_gyro_y = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
 }
 
