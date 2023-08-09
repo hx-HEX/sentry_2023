@@ -62,7 +62,7 @@ void M3508::AngleUpdate(uint8_t type, float input)
  */
 void M3508::EncoderSpeedUpdate(float speed)
 {
-    m_speed_current_encoder = speed / m_reduction_ratio / 60 * 2 * PI * RADIAN2DEGREE_VALUE;
+    m_speed_current_encoder = speed / m_reduction_ratio * 60;
     m_kalman_filter_speed->UpdateFilter(m_speed_current_encoder);
     m_speed_current_encoder_filter = m_kalman_filter_speed->GetFilterOutput();
 }

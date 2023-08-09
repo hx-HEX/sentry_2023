@@ -65,7 +65,7 @@ void SentryRobot::InitAllActuators(void)
     chassis_line_motor[CHASSIS_FRL_MOTOR] = new M3508(CAN1, CHASSIS_FRL_MOTOR_ID, CHASSIS_SPEED_MOTOR_REDUCTION_RATIO);
     chassis_line_motor[CHASSIS_FRL_MOTOR]->m_speed_td = new Adrc_TD(7000, 0.001, 0.001,0);
     chassis_line_motor[CHASSIS_FRL_MOTOR]->m_angle_pid = new Pid(0, 0.00, 0, 10, 2000, 2000, 5000, 2000);
-    chassis_line_motor[CHASSIS_FRL_MOTOR]->m_speed_pid = new Pid(40, 0.00, 0, 10, 10000, 10000, 5000, 2000);
+    chassis_line_motor[CHASSIS_FRL_MOTOR]->m_speed_pid = new Pid(10, 0.00, 0, 10, 10000, 10000, 5000, 2000);
     chassis_line_motor[CHASSIS_FRL_MOTOR]->m_encoder = new AbsEncoder(CHASSIS_FRL_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
     chassis_line_motor[CHASSIS_FRL_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.8f, 0.01f);
     chassis_line_motor[CHASSIS_FRL_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.05f, 0.005f);
@@ -74,7 +74,7 @@ void SentryRobot::InitAllActuators(void)
     chassis_line_motor[CHASSIS_FLL_MOTOR] = new M3508(CAN1, CHASSIS_FLL_MOTOR_ID, CHASSIS_SPEED_MOTOR_REDUCTION_RATIO);
     chassis_line_motor[CHASSIS_FLL_MOTOR]->m_speed_td = new Adrc_TD(7000, 0.001, 0.001,0);
     chassis_line_motor[CHASSIS_FLL_MOTOR]->m_angle_pid = new Pid(0, 0.00, 0, 10, 2000, 2000, 5000, 2000);
-    chassis_line_motor[CHASSIS_FLL_MOTOR]->m_speed_pid = new Pid(40, 0.00, 0, 10, 10000, 10000, 5000, 2000);
+    chassis_line_motor[CHASSIS_FLL_MOTOR]->m_speed_pid = new Pid(10, 0.00, 0, 10, 10000, 10000, 5000, 2000);
     chassis_line_motor[CHASSIS_FLL_MOTOR]->m_encoder = new AbsEncoder(CHASSIS_FLL_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION); 
     chassis_line_motor[CHASSIS_FLL_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.8f, 0.01f);
     chassis_line_motor[CHASSIS_FLL_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.001f, 0.5f);
@@ -83,7 +83,7 @@ void SentryRobot::InitAllActuators(void)
     chassis_line_motor[CHASSIS_BLL_MOTOR] = new M3508(CAN1, CHASSIS_BLL_MOTOR_ID, CHASSIS_SPEED_MOTOR_REDUCTION_RATIO);
     chassis_line_motor[CHASSIS_BLL_MOTOR]->m_speed_td = new Adrc_TD(7000, 0.001, 0.001,0);
     chassis_line_motor[CHASSIS_BLL_MOTOR]->m_angle_pid = new Pid(0, 0.00, 0, 10, 2000, 2000, 5000, 2000);
-    chassis_line_motor[CHASSIS_BLL_MOTOR]->m_speed_pid = new Pid(40, 0.00, 0, 10, 10000, 10000, 5000, 2000);
+    chassis_line_motor[CHASSIS_BLL_MOTOR]->m_speed_pid = new Pid(10, 0.00, 0, 10, 10000, 10000, 5000, 2000);
     chassis_line_motor[CHASSIS_BLL_MOTOR]->m_encoder = new AbsEncoder(CHASSIS_BLL_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
     chassis_line_motor[CHASSIS_BLL_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.8f, 0.01f);
     chassis_line_motor[CHASSIS_BLL_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);
@@ -92,7 +92,7 @@ void SentryRobot::InitAllActuators(void)
     chassis_line_motor[CHASSIS_BRL_MOTOR] = new M3508(CAN1, CHASSIS_BRL_MOTOR_ID, CHASSIS_SPEED_MOTOR_REDUCTION_RATIO);
     chassis_line_motor[CHASSIS_BRL_MOTOR]->m_speed_td = new Adrc_TD(7000, 0.001, 0.001,0);
     chassis_line_motor[CHASSIS_BRL_MOTOR]->m_angle_pid = new Pid(0, 0.00, 0, 10, 2000, 2000, 5000, 2000);
-    chassis_line_motor[CHASSIS_BRL_MOTOR]->m_speed_pid = new Pid(40, 0.00, 0, 10, 10000, 10000, 5000, 2000);
+    chassis_line_motor[CHASSIS_BRL_MOTOR]->m_speed_pid = new Pid(10, 0.00, 0, 10, 10000, 10000, 5000, 2000);
     chassis_line_motor[CHASSIS_BRL_MOTOR]->m_encoder = new AbsEncoder(CHASSIS_BRL_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION); 
     chassis_line_motor[CHASSIS_BRL_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.8f, 0.01f);
     chassis_line_motor[CHASSIS_BRL_MOTOR]->m_kalman_filter_speed = new Kalman(1, 0.001f, 0.0001f,0.003f, 0.5f);

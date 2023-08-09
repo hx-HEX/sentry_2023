@@ -137,7 +137,7 @@ void RobotStatesUpdate(void)
 
     //电机反馈更新
     #ifdef FITCH_ANGLE_ENCODER_FEEDBACK
-	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current_encoder;
+	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = -G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current_encoder;
 	#endif
 	#ifdef FITCH_ANGLE_IMU_FEEDBACK
 	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = G_sentry.gimbal_imu[SentryRobot::GIMBAL_FIRST_IMU]->m_mahony_filter->m_eular_angle.pitch;
@@ -350,7 +350,13 @@ void GimbalTargetsUpdate(void)
         G_sentry.yaw_angle_des = G_sentry.gimbal_motor[SentryRobot::GIMBAL_YAW_MOTOR]->m_angle_current;
 
         for (int i = 0; i < GIMBAL_MOTOR_NUM; i++)
+        {
             G_sentry.gimbal_motor[i]->m_speed_pid->m_output = 0;
+            G_sentry.gimbal_motor[i]->m_angle_target = G_sentry.gimbal_motor[i]->m_angle_current;
+            G_sentry.gimbal_motor[i]->m_speed_target = G_sentry.gimbal_motor[i]->m_speed_current;
+            G_sentry.gimbal_motor[i]->m_angle_pid->m_error_sum = 0;
+            G_sentry.gimbal_motor[i]->m_angle_td->m_aim = G_sentry.gimbal_motor[i]->m_angle_current;
+        }
     }
     
     G_sentry.pitch_angle_des = Clip(G_sentry.pitch_angle_des,PITCH_ANGLE_MIN,PITCH_ANGLE_MAX);

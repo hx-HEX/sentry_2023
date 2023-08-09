@@ -137,7 +137,7 @@ void RobotStatesUpdate(void)
 
     //电机反馈更新
     #ifdef FITCH_ANGLE_ENCODER_FEEDBACK
-	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current_encoder;
+	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = -G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current_encoder;
 	#endif
 	#ifdef FITCH_ANGLE_IMU_FEEDBACK
 	G_sentry.gimbal_motor[SentryRobot::GIMBAL_PITCH_MOTOR]->m_angle_current = G_sentry.gimbal_imu[SentryRobot::GIMBAL_FIRST_IMU]->m_mahony_filter->m_eular_angle.pitch;

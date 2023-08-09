@@ -607,18 +607,18 @@ void OmnidirectionalChassisTargetUpdate(void)
                 detal_theta -= 360.0f;
             while(detal_theta < -180.0f)
                 detal_theta += 360.0f;
-            G_sentry.m_chassis_w = -0.01*detal_theta;
+            G_sentry.m_chassis_w = -0.05*detal_theta;
         }
-        G_sentry.m_chassis_w = Clip(G_sentry.m_chassis_w,-0.5,0.5);
+        G_sentry.m_chassis_w = Clip(G_sentry.m_chassis_w,-1,1);
 
-        frl_speed_des = -(G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
-                         + G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
-        brl_speed_des = -(G_sentry.m_world_vy*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) 
-                        -G_sentry.m_world_vx*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
-        bll_speed_des = (G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
-                        + G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
-        fll_speed_des = (G_sentry.m_world_vy*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) 
-                        -G_sentry.m_world_vx*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
+        frl_speed_des = -(2*G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
+                         + 2*G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
+        brl_speed_des = -(2*G_sentry.m_world_vy*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) 
+                        -2*G_sentry.m_world_vx*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) - G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
+        bll_speed_des = (2*G_sentry.m_world_vy*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) 
+                        + 2*G_sentry.m_world_vx*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
+        fll_speed_des = (2*G_sentry.m_world_vy*cosf((G_sentry.m_world2chassis_angle - 135.0f)/RADIAN2DEGREE_VALUE) 
+                        -2*G_sentry.m_world_vx*cosf((225.0f - (G_sentry.m_world2chassis_angle))/RADIAN2DEGREE_VALUE) + G_sentry.m_chassis_w)/CHASSIS_WHEEL_RADIUS* RADIAN2DEGREE_VALUE;
 
         G_sentry.SetChassisSpeedTarget(fll_speed_des,frl_speed_des,bll_speed_des,brl_speed_des);
     }

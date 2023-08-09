@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Sentry-Core.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Sentry-Core.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sun Aug  6 06:28:23 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Thu Aug 10 05:11:09 2023
 <BR><P>
 <H3>Maximum Stack Usage =        344 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1646,7 +1646,7 @@ Global Symbols
 <LI><a href="#[d6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_RSDataDecode(unsigned char*, unsigned short)
 </UL>
 
-<P><STRONG><a name="[10c]"></a>OmnidirectionalChassisTargetUpdate()</STRONG> (Thumb, 1124 bytes, Stack size 72 bytes, user_global.o(.text._Z34OmnidirectionalChassisTargetUpdatev))
+<P><STRONG><a name="[10c]"></a>OmnidirectionalChassisTargetUpdate()</STRONG> (Thumb, 1160 bytes, Stack size 72 bytes, user_global.o(.text._Z34OmnidirectionalChassisTargetUpdatev))
 <BR><BR>[Stack]<UL><LI>Max Depth = 120<LI>Call Chain = OmnidirectionalChassisTargetUpdate() &rArr; safeAtan2(float, float) &rArr; __hardfp_atan2f &rArr; __set_errno
 </UL>
 <BR>[Calls]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;safeAtan2(float, float)
@@ -1732,7 +1732,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ControlModeUpdate()
 </UL>
 
-<P><STRONG><a name="[124]"></a>SentryRobot::InitAllActuators()</STRONG> (Thumb, 1516 bytes, Stack size 80 bytes, sentry_robot.o(.text._ZN11SentryRobot16InitAllActuatorsEv))
+<P><STRONG><a name="[124]"></a>SentryRobot::InitAllActuators()</STRONG> (Thumb, 1508 bytes, Stack size 80 bytes, sentry_robot.o(.text._ZN11SentryRobot16InitAllActuatorsEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = SentryRobot::InitAllActuators() &rArr; operator new(unsigned) &rArr; malloc &rArr; __Heap_Full &rArr; __Heap_ProvideMemory &rArr; free
 </UL>
 <BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Adrc_TD::Adrc_TD(float, float, float, float)
@@ -1892,7 +1892,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CAN_Decode(CANContext*)
 </UL>
 
-<P><STRONG><a name="[d4]"></a>M3508::EncoderSpeedUpdate(float)</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, m3508.o(.text._ZN5M350818EncoderSpeedUpdateEf))
+<P><STRONG><a name="[d4]"></a>M3508::EncoderSpeedUpdate(float)</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, m3508.o(.text._ZN5M350818EncoderSpeedUpdateEf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = M3508::EncoderSpeedUpdate(float) &rArr; Kalman::UpdateFilter(float)
 </UL>
 <BR>[Calls]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Kalman::GetFilterOutput()

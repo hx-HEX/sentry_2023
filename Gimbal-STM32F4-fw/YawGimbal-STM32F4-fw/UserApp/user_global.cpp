@@ -173,13 +173,17 @@ void GimbalTargetsUpdate(void)
     }
     else 
     {
-        G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_YAW_MOTOR]->m_angle_td->m_aim = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_YAW_MOTOR]->m_angle_current;
-        G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_YAW_MOTOR]->m_angle_td->m_x1 = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_YAW_MOTOR]->m_angle_current;
         G_sentry.yaw_angle_des = G_sentry.yaw_gimbal_motor[SentryRobot::LEFT_YAW_MOTOR]->m_angle_current;
         fisrt_flag = 0;
 
         for (int i = 0; i < YAW_GIMBAL_MOTOR_NUM; i++)
+        {
             G_sentry.yaw_gimbal_motor[i]->m_speed_pid->m_output = 0;
+            G_sentry.yaw_gimbal_motor[i]->m_angle_target = G_sentry.yaw_gimbal_motor[i]->m_angle_current;
+            G_sentry.yaw_gimbal_motor[i]->m_speed_target = G_sentry.yaw_gimbal_motor[i]->m_speed_current;
+            G_sentry.yaw_gimbal_motor[i]->m_angle_pid->m_error_sum = 0;
+            G_sentry.yaw_gimbal_motor[i]->m_angle_td->m_aim = G_sentry.yaw_gimbal_motor[i]->m_angle_current;
+        }
     }
 
     G_sentry.SetGimbalAngleTarget(G_sentry.yaw_angle_des,G_sentry.yaw_angle_des);

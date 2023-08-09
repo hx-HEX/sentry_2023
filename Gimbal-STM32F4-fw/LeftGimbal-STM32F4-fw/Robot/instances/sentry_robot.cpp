@@ -47,7 +47,7 @@ void SentryRobot::InitAllActuators(void)
 
     gimbal_motor[GIMBAL_PITCH_MOTOR] = new GM6020(CAN2, GIMBAL_PITCH_MOTOR_ID, GIMBAL_MOTOR_REDUCTION_RATIO);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_td = new Adrc_TD((float)20000, 0.01, 0.01,0.8);
-    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_pid = new Pid(50, 0.2, 0, 10, 20000, 20000, 5000, 2000);
+    gimbal_motor[GIMBAL_PITCH_MOTOR]->m_angle_pid = new Pid(-50, -0.2, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_speed_pid = new Pid(150, 0.00, 0, 10, 20000, 20000, 5000, 2000);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_encoder = new AbsEncoder(GIMBAL_PITCH_ENCODER_ZERO_VALUE, ENCODER_RESOLUTION);
     gimbal_motor[GIMBAL_PITCH_MOTOR]->m_kalman_filter_angle = new Kalman(1, 0.001f, 0.0001f,0.1f, 0.01f);
